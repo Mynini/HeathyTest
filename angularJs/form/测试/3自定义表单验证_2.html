@@ -1,0 +1,43 @@
+<!doctype html>
+<html ng-app="form-example2">
+  <head>
+    <script src="http://code.angularjs.org/1.2.25/angular.min.js"></script>
+     <style type="text/css">
+      div[contentEditable] {
+        cursor: pointer;
+        background-color: #D0D0D0;
+      }
+    </style>
+  </head>
+  <body>
+    <div contentEditable="true" ng-model="content" title="Click to edit">Some</div>
+    <pre>model = </pre>
+    
+   
+    
+    <script>
+    	angular.module('form-example2', [])
+    	.directive('contenteditable', function() {
+		  return {
+		    require: 'ngModel',
+		    link: function(scope, elm, attrs, ctrl) {
+		      // 视图 -> 模型
+		      elm.on('blur', function() {
+		        scope.$apply(function() {
+		          ctrl.$setViewValue(elm.html());
+		        });
+		      });
+		 
+		      // 模型 -> 视图
+		      ctrl.$render = function() {
+		        elm.html(ctrl.$viewValue);
+		      };
+		 
+		      // 从DOM中初始化数据
+		      ctrl.$setViewValue(elm.html());
+		    }
+		  };
+		});
+    </script>
+  </body>
+</html>

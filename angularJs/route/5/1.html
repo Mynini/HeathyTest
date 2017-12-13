@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+   <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.bootcss.com/ionic/1.3.2/css/ionic.css" rel="stylesheet">
+	<script src="https://cdn.bootcss.com/ionic/1.3.2/js/ionic.bundle.min.js"></script>
+
+</head>
+
+<body ng-app="myApp">
+
+
+<div ui-view></div>
+<script>
+	angular.module('myApp',['ionic'])
+           
+	.config(["$stateProvider","$urlRouterProvider",function($stateProvider,$urlRouterProvider){
+		$urlRouterProvider.otherwise('page1');
+		$stateProvider
+		.state("page1",{
+		    url:"/page1",
+			templateUrl:"2.html"
+		})
+		.state("page2",{
+            url:"/page2",			
+			templateUrl:"3.html"
+		});
+	}])
+</script>
+        
+</body>
+</html>

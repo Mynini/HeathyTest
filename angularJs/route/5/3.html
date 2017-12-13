@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta name="format-detection" content="telephone=no">
+    <title>国旅在线</title>
+	
+</head>
+<body>
+	<ion-nav-view>
+		<ion-view>
+			<div class="bar bar-header">
+				<button class="button back-button  button-icon ion-ios-arrow-left"></button>
+				<h4>个人资料</h4>
+			</div>
+			<ion-content class="personal">
+				<div class="personal-1">
+					<a>
+						<div class="personal-1-1">
+							<span class="personal-1-1span">头像</span>
+							<div class="personal-1-1-img"><img route-image-lazy-src="http://file.cits.cn/originalPhoto/20171130/20171130145811_463.jpg" image-lazy-loader="img/load/lg.png" src="images/lg.png"></div>
+							<i class="ion-ios-arrow-right"></i>
+						</div>
+					</a>
+					<div ng-controller="memberPersonalInfoCtrl" style="display: none"><input id="photo" type="file" ngf-select="onFileSelect(onlineTouristVO.photo)" file-model="myFile"></div>
+					<div class="personal-1-2" >
+						<a class="" href=""  ui-sref="page1">
+							<span class="personal-1-2span" >昵称</span>
+							<span class="sy_persona_name">星痕</span>
+							<i class="ion-ios-arrow-right"></i>
+						</a>
+					</div>
+				</div>
+				
+				<div class="persona2">
+						<a>
+							<div class="persona2-1">
+								<span class="persona2-1-1">姓名</span> 
+								<span class="persona2-1-2"></span>
+								<i class="ion-ios-arrow-right"></i>
+							</div>
+						</a>
+						<div class="persona2-1 persona2-2">
+							<a>
+								<span class="persona2-1-1">手机号</span> 
+								<span class="sy_persona2_con">15311336298</span>
+								<i class="ion-ios-arrow-right"></i>
+							</a>
+						</div>
+			    </div>
+			    
+			    <div class="persona3">
+			    	<a class="">
+			    		<div class="persona2-1">
+			    			<span class="persona2-1-1">生日</span> 
+			    			<span class="sy_persona2_con">15311336298</span>
+			    		</div>
+			    	</a>
+			    	<div class="persona2-1 persona-2-6 xiahuaxian">
+			    		<span class="persona2-1-1">性别</span>
+			    		<span class="sy_persona2_con">15311336298</span>
+			    	</div>
+			    	<div class="persona2-1 persona-2-6 xiahuaxian">
+			    		<span class="persona2-1-1">身份证</span> 
+			    		<span class="sy_persona2_con">15311336298</span>
+			    		<i class="ion-ios-arrow-right"></i>
+			    	</div>
+			    	<div class="persona2-1 xiahuaxian">
+			    		<a>
+			    			<span class="persona2-1-1">邮箱</span> 
+			    			<span class="sy_persona2_con">15311336298</span>
+			    			<i class="ion-ios-arrow-right"></i>
+			    		</a>
+			    	</div>
+			    	<div class="persona2-1 xiahuaxian">
+			    		<a>
+			    			<span class="persona2-1-1">婚姻状况</span> 
+			    			<span class="sy_persona2_con">15311336298</span>
+			    		</a>
+			    	</div>
+			    	<div class="persona2-1 xiahuaxian">
+			    		<a>
+			    			<span class="persona2-1-1">职业</span> 
+			    			<span class="sy_persona2_con">15311336298</span>
+			    		</a>
+			    	</div>
+			    	<div class="persona2-1 xiahuaxian">
+			    		<a>
+			    			<span class="persona2-1-1">学历</span> 
+			    			<span class="sy_persona2_con">15311336298</span>
+			    		</a>
+			    	</div>
+			    	<div class="persona2-1 xiahuaxian">
+			    		<a ng-click="toResetPswd()">
+			    			<span class="persona2-1-1">修改密码</span> 
+			    			<span class="persona2-1-3">点击修改密码</span> 
+			    			<i class="ion-ios-arrow-right"></i>
+			    		</a>
+			    	</div>
+			    </div>
+
+			    <div  class="cits-form-button denglu-2">
+			    	<button class="button button-assertive denglu-2-1">退出登录</button>
+			    </div>
+			</ion-content>
+		</ion-view>
+	</ion-nav-view>
+</body>
+</html>

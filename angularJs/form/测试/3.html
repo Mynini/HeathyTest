@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script src="http://code.angularjs.org/1.2.25/angular.min.js"></script>
+	<style>
+		
+		input.ng-valid.ng-dirty{background:green;}
+		input.ng-valid.ng-pristine{background:red;}
+			
+	</style>
+</head>
+<body>
+		<form name="myForm">
+			 <div contenteditable
+			  name="myWidget" ng-model="userContent"
+			  strip-br="true"
+			  required>Change me!</div>
+			  <span ng-show="myForm.myWidget.$error.required">Required!</span>
+			 <hr>
+			 <textarea ng-model="userContent"></textarea>
+			</form>
+		
+		<script>
+			angular.module('myApp')
+			.directive('spoint', function() {
+			  return {
+			    require: 'ngModel',
+			    link: function(scope, elm, attrs, ctrl) {
+			      var fibonacci = [1, 2, 3, 5, 8, 13, 20, 40, 80];
+			      ctrl.$parsers.unshift(function(viewValue) {
+			        if (fibonacci.indexOf(parseInt(viewValue)) >= 0) {
+			          ctrl.$setValidity('fibonacci', true);
+			          return viewValue;
+			        } else {
+			          ctrl.$setValidity('fibonacci', false);
+			          return undefined;
+			        }
+			      });
+			    }
+			  };
+			});
+		</script>
+
+	
+</body>
+</html>
