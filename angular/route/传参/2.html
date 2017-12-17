@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+        <meta charset="UTF-8">
+        <title>ui-view</title>
+
+        <script src="http://lib.baomitu.com/angular.js/1.6.4/angular.min.js"></script>
+        <script src="http://lib.baomitu.com/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
+      
+    </head>
+    <body  ng-controller="myCtrl">  
+
+    <div ui-view></div>
+
+
+  
+
+    <!-- 这是父级页面 1-->
+    <script type='text/ng-template' id="home.html">
+
+        <a ui-sref=".index1({data:'hi'})">这里是index页面 点击跳到index1</a> <br><br>
+        <p ui-sref=".index2">这里是index页面 点击跳到brother3</p> <br><br>
+
+        ////////////////////////////////////////////////////////////////////
+        <div ui-view></div>
+   
+
+    </script>
+    <script type='text/ng-template' id="home_1.html">
+        <h3>我是home1 点击跳到home</h3> <br><br>
+        <h2>我是home1 点击跳到home2</h2> <br><br>
+        <!-- 通过brother3 直接状态可跳回它的父级兄弟页面 -->
+    </script>
+    <script type='text/ng-template' id="home_2.html">
+        <p >这里是home2 点击跳到home------</p> <br><br>
+        <p >这里是home2 点击跳到home1</p> <br><br>
+    </script>
+
+
+        
+
+        
+    
+    <script type="text/javascript">
+
+        var app= angular.module("myApp",['ui.router']);
+        app.config(function($stateProvider,$urlRouterProvider){
+            $urlRouterProvider.when("","index");
+            $stateProvider
+            .state("index",{
+                url:"/index",
+                templateUrl:"home.html"
+            })
+            .state("index.index1",{
+                url:"/index1/?data",
+                templateUrl:"home_1.html",
+                controller:function($scope,$stateParams){
+                    console.log($stateParams.data);
+                }
+            })
+            .state("index.index2",{
+                url:"/index2",
+                templateUrl:"home_2.html"
+            })
+           
+        });
+
+        app.controller("myCtrl",function($scope){
+
+        });
+        // app.controller("ctrlBrothers",function($scope,$stateParams){
+        //     console.log($stateParams.h1);
+        // });
+
+
+    </script>
+    </body>
+</html>

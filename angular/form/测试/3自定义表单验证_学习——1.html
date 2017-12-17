@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="http://code.angularjs.org/1.2.25/angular.min.js"></script>
+		<style>
+		
+			/*input.ng-valid.ng-dirty{background:green;}*/
+			
+			/*input.ng-invalid.ng-dirty{background:red;}*/
+	    </style>
+	</head>
+	<body>
+		
+		<form novalidate name="form">
+			<input type="number" name="mobile" ng-model="user.mobile" placeholder="请输入手机号" ng-pattern="/^(((13[0-9]{1})|(15[0-9]{1})|(17[0-9]{1})|(18[0-9]{1})|(14[0-9]{1}))+\d{8})$/" phone /> <span ng-show="form.mobile.$error.mydective ||form.mobile.$invalid" >请输入正确的手机号</span><br />
+			
+			<input type="number" name="password" ng-model="user.password" placeholder="请输入密码" maxlength="6" password/><span ng-show="form.password.$invalid || form.password.$error.password">请输入6位数密码</span><br />
+			<input type="email" name="email" ng-model="user.emial" placeholder="请输入密码"/><br />
+			<input type="button"  value="提交"/>
+		</form>
+		
+	 <script>
+	    var app=angular.module("myApp",[]);
+
+    	app.directive('phone', function() {
+			 return {
+			    require: 'ngModel',
+			    link: function(scope, elm, attrs, ctrl) {
+			      // 视图 -> 模型
+			      elm.on('blur', function() {
+			        scope.$apply(function() {
+			          if(elm.val().length !=11)
+			          {
+			          	console.log(1)
+			          	ctrl.$setValidity("phone",false);
+			          	 return false;  
+			          	
+			          }else{
+			          	console.log(2);
+			          	ctrl.$setValidity("phone",true);
+			          	return true;  
+			          }
+			        });
+			        
+			      });
+			    }
+			  }
+		});
+		
+		app.directive("password",function(){
+			return {
+			    require: 'ngModel',
+			    link: function(scope, elm, attrs, ctrl) {
+			      // 视图 -> 模型
+			      elm.on('blur', function() {
+			        scope.$apply(function() {
+			          if(elm.val().length !=6)
+			          {
+			          	console.log(1)
+			          	ctrl.$setValidity("phone",false);
+			          	 return false;  
+			          	
+			          }else{
+			          	console.log(2);
+			          	ctrl.$setValidity("phone",true);
+			          	return true;  
+			          }
+			        });
+			        
+			      });
+			    }
+			  }
+		})
+	   
+	 </script>
+		
+	</body>
+</html>
+
+

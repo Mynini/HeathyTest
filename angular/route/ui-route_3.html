@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+</head>
+<body>
+<script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.js"></script>
+<script src="https://cdn.bootcss.com/angular-ui-router/1.0.0-rc.1/angular-ui-router.min.js"></script>
+
+
+<div ui-view></div>
+
+
+
+<script type="text/ng-template" id="ui1.html">
+	<h1>这个是ui-router 页面1</h1>
+	<a  ui-sref="page2">点这里跳到页面2</a>
+</script>
+
+<script type="text/ng-template" id="ui2.html">
+	<h1>这是ui-router 页面2</h1>
+	<a ui-sref="page1">返回页面1</a>
+</script>
+
+
+<script type="text/javascript">
+	angular.module('app', ['ui.router'])
+	.config(function($stateProvider,$urlRouterProvider){
+		$urlRouterProvider.when('', 'page1');//默认路径路由
+		$stateProvider
+		.state("page1",{
+			url:"/PageTab",
+			templateUrl:"ui1.html"
+		}).
+		state("page2",{
+			url:"/tab1",
+			templateUrl:"ui2.html"
+		})
+	})
+</script>
+	
+</body>
+</html>

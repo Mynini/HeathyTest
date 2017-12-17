@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+        <meta charset="UTF-8">
+        <title>ui-view</title>
+    </head>
+    <body ng-controller="myCtrl">
+        
+
+        <a ui-sref="homestate.home1({h1:'home-home1'})">跳到home1页面</a>
+        <a ui-sref="chatstate({data:'home-chat'})">跳到chat页面</a>
+        <a ui-sref="ourstate">跳到our页面</a>
+        <button ng-click="goour()">index下的按钮跳转到our</button> 
+
+        <br>
+        <br>
+        <br>////////////////////////////////////////////
+
+        <div ui-view></div>
+        <br>
+        <br>
+        <br>、、、、、、、、、、、、、、、、、、、、、、、、、、
+        <p>v1状态:</p>
+        <div ui-view="v1"></div>
+        <p>v2状态:</p>
+        <div ui-view="v2"></div>
+    </body>
+    <script src="http://lib.baomitu.com/angular.js/1.6.4/angular.min.js"></script>
+    <script src="http://lib.baomitu.com/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
+    <script type="text/javascript">
+        var app = angular.module("myApp",["ui.router"]);
+        app.config(function($stateProvider, $urlRouterProvider){
+            $urlRouterProvider.when('',"/home");
+            $stateProvider
+            .state('homestate', {
+                url: "/home",//控制地址栏跳转的地址
+                views:{
+                    //"","v1","v2"是ui-view的名字
+                    "":{
+                        controller:"homeCtrl",
+                        templateUrl: 'home.html'
+                    },
+                    "v1":{
+                        template:"<p>homestate状态</p>"
+                    }
+                }
+            })
+            .state("homestate.home1",{
+                url:"/home1/?h1?id",
+                //params:{h1:null,id:null},//写法同上;
+                views:{
+                    "":{
+                        controller:function($scope,$stateParams){
+                            console.log($stateParams.h1);//ui-sref传参
+                            console.log($stateParams.id);//state.go传参
+                        },
+                        templateUrl: 'home1.html'
+                    },
+                //由于home1是home的子页面,所以v1和v2页面设置是无效的,因为v1和v2不在home页面里而是在index页面
+                }
+            })
+            .state("homestate.home2",{
+                url:"/home2",
+                views:{
+                    "":{
+                        controller:function($scope){
+//                            console.log($stateParams.h1);
+                        },
+                        template: '<h2>我是home的子页面home2</h2>'
+                    },
+                }
+            })
+            .state("chatstate",{
+                url:"/chat",
+                params:{data:null},
+                views:{
+                    "":{
+                        controller:function($scope,$stateParams){
+                            console.log($stateParams.data);
+                        },
+                        templateUrl: 'chat.html'
+                    },
+                    "v1":{
+                        template:"<p>chatstate状态</p>"
+                    }
+                }
+            })
+            .state("ourstate",{
+                url:"/our",
+                params:{"id":null},//或者url:"/our:id"
+                views:{
+                    "":{
+                        controller:function($scope,$stateParams){
+                            console.log($stateParams.id);
+                        },
+                        templateUrl: 'our.html'
+                    },
+                    "v2":{
+                        template:"<p>ourstate状态</p>"
+                    }
+                }
+            })
+            $urlRouterProvider.otherwise('/home');
+        });
+        
+        app.controller("myCtrl",function($scope,$state){
+            $scope.goour = function (){
+                $state.go("ourstate",{id:"index-our"});
+            }
+        });
+        app.controller("homeCtrl",function($scope,$state){
+            $scope.goour = function (){
+                $state.go("ourstate",{id:"home-our"});
+            };
+            $scope.gohome1 = function(){
+                $state.go("homestate.home1",{id:"home-home1"});
+            };
+            $scope.gohome2 = function(){
+                $state.go("homestate.home2",{id:"home-home2"});
+            }
+        });
+        //注释：多视图views可以实现多个ui-view，根据地址或状态的不同使这几个ui-view分别显示不同内容(也可以不显示)，而且这几个状态是同级关系
+        //而嵌套视图的子视图是在父视图下的，父视图下应该有ui-view
+    </script>
+</html>

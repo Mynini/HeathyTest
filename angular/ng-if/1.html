@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	    <meta name="format-detection" content="telephone=no">
+	    <title>国旅在线</title>
+		  <link href="http://file1.cits.cn/m/lib/ionic/css/ionic.css?v=1.0.0" rel="stylesheet" type="text/css"/>
+    <script src="http://file4.cits.cn/m/lib/ionic/js/ionic.bundle.min.js"></script>
+	    
+	    
+	</head>
+	<body ng-controller="myCtrl">
+		
+		
+	 <ion-view >
+	 	<div class="box" ng-model="btn"> 
+	 	 <!--<div class="b1">如果有1就出1</div>
+	 	 <div class="b1">如果有1就出1</div>
+	 	 <div class="b1">如果有1就出1</div>-->
+		 </div>
+		 
+		 <p ng-if="!btn">1111</p>
+	 </ion-view>
+	 
+	 <script>
+	 	var app=angular.module("myApp",["ionic"]);
+//	 	app.controller("myCtrl" ,function($scope){
+//	 		$scope.btn=true;
+//	 	})
+	 	
+	 </script>
+		
+	</body>
+</html>

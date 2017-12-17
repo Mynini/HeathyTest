@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+        <meta charset="UTF-8">
+        <title>ui-view</title>
+
+        <script src="http://lib.baomitu.com/angular.js/1.6.4/angular.min.js"></script>
+        <script src="http://lib.baomitu.com/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
+        
+        <style>
+        	p{cursor:pointer;}
+        </style>
+    </head>
+    <body  ng-controller="myCtrl">  
+
+    <div class="ui-view"></div>
+
+
+    <!-- 这是父级页面 1-->
+    <script type='text/ng-template' id="home.html">
+        <p ui-sref="brothers({h1:'home-home1'})">这里是index页面 点击跳到brothers</p> <br><br>
+        <p ui-sref="brother3">这里是index页面 点击跳到brother3</p> <br><br>
+        
+    </script>
+
+
+    <!-- 这是父级页面 2-->
+    <script type='text/ng-template' id="brothers.html">
+        <p ui-sref="brother3">这里是brothers页面,点击跳到brother3</p> <br><br>
+        <p ui-sref="index">这里是brothers页面 点击跳到index</p> <br><br>
+ 
+    </script>
+
+    <!-- 这是父级页面 3-->
+    <script type='text/ng-template' id="brother3.html">
+        <p ui-sref="brothers({h1:'home-home1'})">这里是brother3页面,点击跳到brothers</p> <br><br>
+        <p ui-sref="index">这里是brother3页面,点击跳到index</p> <br><br>
+    </script>
+        
+
+        
+    
+    <script type="text/javascript">
+
+        var app= angular.module("myApp",['ui.router']);
+        app.config(function($stateProvider,$urlRouterProvider){
+            $urlRouterProvider.when("","index");
+            $stateProvider
+            .state("index",{
+                url:"/index",
+                templateUrl:"home.html"
+            })
+
+           
+
+            .state("brothers",{
+                url:"/brothers/hi?",  //写在这里的传参可以在url上看到
+                //params:{h1:null,id:null}, //写在这里的传参在url上看不到 可以在后控制台打印出来;
+                views:{
+                    "":{
+                        controller:function($scope,$stateParams){
+                            console.log($stateParams.h1);//ui-sref传参
+  
+                        },
+                        templateUrl: 'brothers.html'
+                    },
+                //由于home1是home的子页面,所以v1和v2页面设置是无效的,因为v1和v2不在home页面里而是在index页面
+                }
+            })
+            
+            
+             .state("brother3",{
+                url:"/brother3",
+                templateUrl:"brother3.html"
+               
+            })
+        });
+
+        app.controller("myCtrl",function($scope){
+
+        });
+        // app.controller("ctrlBrothers",function($scope,$stateParams){
+        //     console.log($stateParams.h1);
+        // });
+
+
+    </script>
+    </body>
+</html>
