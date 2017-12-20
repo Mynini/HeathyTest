@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<div ng-view></div>
+
+<script type="text/ng-template" id="ui-1.html">
+	<a href="">点击跳到ui-1_1.html</a>
+	<a href="">点击跳到ui-1_2.html</a>
+	<div ui-view></div>
+</script> <!-- 这个是一个主页面 下面是它的子页面 -->
+<script type="text/ng-template" id="ui-1_1.html">
+	<a href="">点击跳到ui-1.html</a>
+	<a href="">点击跳到ui-1_2.html</a>
+</script> 
+<script type="text/ng-template" id="ui-1_2.html">
+	<a href="">点击跳到ui-1.html</a>
+	<a href="">点击跳到ui-1_1.html</a>
+</script>
+
+<script type="text/ng-template" id="ui-2.html">
+	<a href="">点击跳到ui-2_1.html</a>
+	<div ui-view></div>
+</script> <!-- 这个是个主页面 下面是它的嵌套 -->
+<script type="text/ng-template" id="ui-2_1.html">
+	<a href="">点击跳到ui-2.html</a>
+</script>
+
+<script>
+	app=angular.module("myApp",["ui-router"]);
+	app.config(["$stateProvider","$urlRouterProvider",function($stateProvider,$urlRouterProvider){
+		$urlRouterProvider.when("","index");
+		$stateProvider
+		.state("index",{
+			url:"/index",
+			templateUrl:"ui-1.html"
+		});
+	}])
+</script>
+	
+</body>
+</html>
