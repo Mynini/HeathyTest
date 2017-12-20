@@ -1,0 +1,30 @@
+.ViewPic{width:700px;height:538px;}
+.ViewPic #center{position:relative; clear:both; overflow:hidden;}
+.ViewPic .bigpic{margin:0 auto;color:#333;line-height:18px;}
+.ViewPic .bigpic .img{margin:0 auto; text-align:center;}
+.ViewPic .bigpic .img img{border:3px solid #fff;}
+.ViewPic .bigpic h2{font-size:14px;padding:10px 0 5px;}
+.ViewPic .sz{font-size:24px; position:absolute;right:15px;bottom:10px;}
+.ViewPic .sz span{font-size:48px;}
+
+.ViewPic .picls{padding:0 30px; height:91px;background-color:red;}
+.ViewPic .ls_cen{width:635px;float:left;padding:0 20px 0 10px;_padding:0 12px 0 8px;}
+.ViewPic .ls_cen .an_left,.ls_cen .an_right{width:20px;float:left;padding-top:14px;}
+.ViewPic .ls_cen .an_left a{width:20px;height:65px;background:url(../images/an_left.gif) no-repeat; display:block;}
+.ViewPic .ls_cen .an_right a{width:20px;height:65px;background:url(../images/an_right.gif) no-repeat;display:block;}
+.ViewPic .ls_cen .an_left a.prev{width:20px;height:65px;background:url(../images/an_lefta.gif) no-repeat; display:block;}
+.ViewPic .ls_cen .an_right a.next{width:20px;height:65px;background:url(../images/an_righta.gif) no-repeat;display:block;}
+.ViewPic .z_left{width:173px;float:left;margin:7px 0 0 11px;font-size:12px;}
+.ViewPic .z_left a{width:130px; display:block;background:url(../images/z_left.gif) no-repeat;}
+.ViewPic .z_left img{padding:2px 12px 6px 6px;float:left;}
+.ViewPic .z_left a span{padding-top:10px;display:block;}
+.ViewPic .z_right{width:130px;float:left;margin:7px 0 0 11px;font-size:12px;}
+.ViewPic .z_right a{width:130px; display:block;background:url(../images/z_right.gif) no-repeat right;}
+.ViewPic .z_right img{padding:2px 6px 6px 12px;float:left;}
+.ViewPic .z_right a span{padding-top:10px;display:block; float:left;width:12px;}
+.ViewPic .smls{width:550px;float:left;padding:0 15px;height:91px; overflow:hidden;}
+.ViewPic .smls ul{padding:0px;margin:0px;list-style:none;}
+.ViewPic .smls li{padding:12px 4px;float:left;list-style:none;}
+.ViewPic .smls li.one,.ViewPic .smls li:hover{background:url(../images/liBG_1.gif) no-repeat center 4px;}
+.ViewPic .smls li img{border:1px solid #cccccc;width:100px;height:67px;}
+
