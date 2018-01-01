@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../common/css/css.css">
+	<style>
+		.box{width:380px;height:500px;overflow:hidden;margin:50px auto 0;border:1px solid #ccc;border-radius:10px;box-sizing:border-box;padding:10px;}
+		ul{clear:both;overflow:hidden;height:430px;}
+		ul li{margin:10px 0;}
+		img{width:30px;height:30px;}
+		li img{float:left;}
+		.right img{float:right;}
+		.right .txt{text-align:right;}
+		.txt{overflow:hidden;}
+        
+        .img1,
+		textarea,
+		button{float:left;}
+		textarea{width:80%;}
+		button{width:30px;height:30px;background:none;border:none;text-align: center;}
+	</style>
+</head>
+<body>
+<div class="box">
+	<ul id="ul">
+		<!-- <li class="left"><img src="../common/images/l-u-l1.png" alt="" class="img1"><div class="txt">我要发送消息我要发送消息我要发送消息我要发送消息我要发送消息我要发送消息</div></li>
+		<li class="right"><img src="../common/images/l-u-l1.png" alt="" class="img1"><div class="txt">我要发送消息我要发送消息我要发送消息我要发送消息我要发送消息我要发送消息我要发送消息我要发送消息</div></li> -->
+	</ul>
+	<div class="box2" id="box2">
+	    <img src="../common/images/l-u-l1.png" alt="" class="img1">
+	    <textarea></textarea>
+	    <button>发送</button>
+	</div>
+</div>
+<script>
+	window.onload=function(){
+		// dom变量
+		var $ul=document.getElementById("ul");
+		var $box2=document.getElementById("box2");
+		var $btn=$box2.getElementsByTagName("button")[0];
+		var $input=$box2.getElementsByTagName("textarea")[0];
+		var $boxImg=$box2.getElementsByTagName("img")[0];
+
+		//变量
+		var html='';
+		var i=0;  //变更量累加  如果是双就给li加right
+		var arr=['../common/images/l-u-l1.png','../common/images/l-u-l2.png']
+		var btn=true;//表情图片点击切换
+
+		console.log($boxImg.src)
+
+
+
+	    //动作
+	    $btn.onclick=function(){
+            i++;
+
+            // 动态创建dom
+	    	var $li=document.createElement("li");
+
+            var $i=document.createElement("img");
+            $i.setAttribute("class","img1");
+            $i.setAttribute("src",$boxImg.src)
+            $li.appendChild($i);
+
+            var $txt=document.createElement("div");
+            $txt.setAttribute("class",'txt');
+            $txt.innerHTML=$input.value;
+            $li.appendChild($txt);
+
+            if(i%2==0){
+            	$li.setAttribute("class","right");
+            }
+
+	    	$ul.appendChild($li);
+
+	    	$input.value=''; //清空textarea输入
+
+	    }
+
+        $boxImg.onclick=function(){
+           if(btn){
+           	this.src=arr[1];
+           	btn=false;
+           }else{
+           	this.src=arr[0];
+           	btn=true;
+           }
+        }
+
+
+	}
+</script>
+	
+</body>
+</html>
