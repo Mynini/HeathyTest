@@ -54,21 +54,50 @@
 		var $btn=document.getElementsByTagName("button");
 
 		var num=0;
+		var lin=$box_li[num];
 
         //prev点击
 		$btn[0].onclick=function(){
-			num++;
+			if(num<=0){
+				num==0;
+			}else{
+				num--;
+				for(var i=0;i<$box_li.length;i++){
+					$box_li[i].style.display="none"
+				}
+			    $box_li[num].style.display="block";
 
+			    $sul_li[num].setAttrbute=
+			    lin=$box_li[num];
+			}
+			
 		}
         
         //next点击
-		$btn[0].onclick=function(){
-			f
+		$btn[1].onclick=function(){
+			if(num>=2){
+				num==2;
+			}else{
+				num++;
+				for(var i=0;i<$box_li.length;i++){
+					$box_li[i].style.display="none"
+				}
+			    $box_li[num].style.display="block";
+			    lin=$box_li[num];
+			}
 		}
 
 		// 小点点击
 	    for(var i=0;i<$sul_li.length;i++){
-	    	$sul_li[0].onclick=function(){}
+	    	$sul_li[i].index=i;
+	    	$sul_li[i].onclick=function(){
+
+	    		lin.style.display="none";
+	    		$box_li[this.index].style.display="block";
+	    		num=this.index;
+	    		lin=$box_li[this.index];
+
+	    	}
 	    }
 
        

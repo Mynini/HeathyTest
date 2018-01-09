@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+<style>
+
+li{
+	width:20px;
+	height: 30px;
+	background: red;
+	margin: 5px;
+	transition: 1s;
+}
+</style>
+</head>
+<body>
+<span id="span">哈哈</span>
+<ul id="ul">
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+	<li>5</li>
+</ul>
+<div class="box">haha</div>
+<script type="text/javascript">
+	window.onload=function(){
+		var ul=document.getElementById("span");
+		// console.log(getNextElemenst(ul.children[0]));
+		var s=getStyle(span,"width")
+		console.log(s)
+
+	}
+
+
+
+   function getStyle(obj, attr) {
+	return obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle(obj, false)[attr];
+}
+    
+</script>
+</body>
+</html>

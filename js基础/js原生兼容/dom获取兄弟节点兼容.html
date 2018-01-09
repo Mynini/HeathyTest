@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+<style>
+li{
+	width:20px;
+	height: 30px;
+	background: red;
+	margin: 5px;
+	transition: 1s;
+}
+</style>
+</head>
+<body>
+<ul id="ul">
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+	<li>5</li>
+</ul>
+<div class="box">haha</div>
+<script type="text/javascript">
+	window.onload=function(){
+		var ul=document.getElementById("ul");
+		// console.log(getNextElement(ul.children[0]));
+		console.log(ul.firstChild)
+
+	}
+
+	function getNextElement(element){
+		if(element.nextElementSibling){
+			return element.nextElementSibling;
+
+		}else{
+			var node=element.nextSibling;
+			while(node && node.nodeType !=1){
+				node=node.nextSibling
+			}
+			return node;
+		}
+	}
+
+	function getPreviousElement(element){
+		if(element.previousElementSibling){
+			return element.previousElementSibling
+		}else{
+			var node=element.previousSibling;
+			while(node && node.nodeType !=1){
+				node=node.previousSibling ;
+			}
+			return node;
+		}
+	}
+
+
+	//firstElementChild 兼容
+
+	function getFirstElement(parent) {
+	  if(parent.firstElementChild) {
+	    return parent.firstElementChild;
+	  }else {
+	    var el = parent.firstChild;
+	    while(el && el.nodeType !== 1) {
+	      el = el.nextSibling;
+	      }
+	    return el;
+	  }
+	}
+
+	//lastElementChild 兼容
+
+	function getLastElement(parent) {
+	  if(parent.lastElementChild) {
+	    return parent.lastElementChild;
+	  }else {
+	    var el = parent.lastChild;
+	    while(el && el.nodeType !== 1) {
+	      el = el.previousSibling;
+	      }
+	    return el;
+	  }
+	}
+</script>
+</body>
+</html>
