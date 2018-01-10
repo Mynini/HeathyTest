@@ -1,0 +1,5 @@
+<view class="page">
+   <input class="ipt" placeholder='请输入内容' focus="{{true}}" value="{{content}}"  bindinput="change"></input>
+   <button class="btn1" bindtap="cancel">取消</button>
+   <button class="btn2" bindtap="sure">确定</button>
+</view>

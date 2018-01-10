@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../common/jquery-1.10.1.min.js"></script>
+		<style>
+		ul{padding:0;}
+		li{list-style:none;}
+			.box{height:0;overflow:hidden;position:relative;background:red;width:200px;}
+			.box-show{height:auto;}
+			.box1{opacity:0;transform:translateY(-50%);transition:all .6s;}
+			.box1-show{opacity:1;transform:translateY(0);}
+			
+			li{display:flex;list-style:none;}
+			li p{flex:1;}
+			span{padding-right:26px;position:relative;display:block;}
+			span:after{content:"";display:block;width:20px;height:20px;border-style:solid;border-color:green;border-width:2px 2px 0 0;transform:rotate(45deg);top:50%;margin-top:-10px;position:absolute;left:50%;margin-left:-10px;}
+		</style>
+		<script>
+			$(function(){
+				var btn=true;
+				$(".tit").click(function(){
+					if(btn){
+						$(".box").addClass('box-show');
+					    $(".box1").addClass("box1-show");
+					    btn=false;
+					}else{
+						btn=true;
+						$(".box").removeClass('box-show');
+					    $(".box1").removeClass("box1-show");
+					}
+					
+				})
+
+          
+			})
+		</script>
+	</head>
+	<body>
+		<div class="tit">点我展开</div>
+		<div class="box">
+			<div class="box1">
+				<ul>
+					<li><p>111</p><span></span></li>
+					<li><p>111</p><span></span></li>
+					<li><p>111</p><span></span></li>
+					<li><p>111</p><span></span></li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
