@@ -20,7 +20,7 @@
         Gender: <input type="radio" ng-model="user.gender" value="male" />male
         <input type="radio" ng-model="user.gender" value="female" />female<br />
         <button ng-click="reset()">RESET</button>
-        <button ng-click="update(user)">SAVE</button>
+        <button ng-click="save(user)">save</button>
       </form>
       <pre>form =  {{user | json}} </pre>
       <pre>master =  {{master | json}} </pre>
@@ -31,7 +31,7 @@
     .controller('ExampleController', ['$scope', function($scope) {
       $scope.master = {};
 
-      $scope.update = function(user) {
+      $scope.save = function(user) {
         $scope.master = angular.copy(user);
       };
 
