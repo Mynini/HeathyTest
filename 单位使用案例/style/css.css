@@ -1,0 +1,49 @@
+﻿body { font:14px "microsoft Yahei","Arial",sans-serif; color: #333; word-wrap:break-word;}
+body,form,input,p,ul,li,h1,h2,h3,h4,h5,h6,table,th,td,dl,dt,dd{padding:0;margin:0;}
+img{border:0; vertical-align: middle;}
+ul,li{list-style:none;}
+dl,dt,dd{display: block;}
+a{text-decoration:none;}
+input, textarea{ box-sizing: border-box;  border: 0; background:none; font:14px "microsoft Yahei","Arial",sans-serif; width: 100%; }
+h2{font-weight:400;}
+i{ font-style:normal;}
+b{ font-weight:normal;}
+a{transition:all 0.3s;-webkit-transition:all 0.3s;outline: none;cursor: pointer;}
+a:hover{}
+.clear{ clear:both; width:100%; overflow:hidden; height:0; }
+
+
+
+/*--PC--*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*--ipad横--*/
+@media screen and (max-width:1200px){/*--1200-1024--*/
+	
+}
+
+/*--ipad竖--*/
+@media screen and (max-width:1002px){/*--1024-768--*/
+	
+}
+
+/*--手机横--*/
+@media screen and (max-width:758px){/*--768-0--*/
+	
+}
+/*--手机竖--*/
+@media screen and (max-width:470px){/*--768-0--*/
+	
+}
+

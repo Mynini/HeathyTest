@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="UTF-8" /> 
+  <meta name="apple-mobile-web-app-capable" content="yes" /> 
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" /> 
+  <meta name="viewport" content="width=240, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" /> 
+  <meta name="format-detection" content="telephone=no, email=no" /> 
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="style/css.css">
+  <title>无标题文档</title>
+   
+  <style>
+    .header{width: 100%;background-color: #2c2f3c;box-sizing: border-box;padding: 0.3rem 0.2rem;}
+    .header .logo{width: 2.82rem;height: 0.4rem}
+    .footer{width: 100%;background-color: #fff;position: fixed;bottom: 0}
+    .f_box{width: 100%;height: 1.08rem}
+    .footer .li{float: left;box-sizing: border-box;text-align: center;padding-top: 0.2rem;padding-bottom: 0.18rem}
+    .footer .li i{display: block;width: 0.38rem;height: 0.36rem;margin:auto;}
+    .footer .li span{font-size: 0.24rem;color: #fff;}
+    .footer .li1{width: 40%;position: relative;}
+    .footer .li1:before{content: "";width: 100%;height: 1px;background-color: #ddd;position: absolute;top: 0;left: 0}
+    .footer .li1:after{content: "";width: 100%;height: 1px;background-color: #ddd;position: absolute;bottom: 0;left: 0}
+    .footer .li1 span{color: #f71c5c}
+    .footer .li2{width: 30%;background-color: #f71c5c;}
+    .footer .li3{width: 30%;background-color: #2c2f3c;}
+    .con{background-color: #f2f5fa;padding: 0.2rem}
+    .con ul{}
+    .con ul li{background-color: #fff;box-sizing: border-box;padding:0.04rem;margin-bottom: 0.2rem;}
+    .con ul li a{display: table;color: #333}
+    .con .pic{width: 2.52rem;height: 1.64rem;display: table-cell;vertical-align: top;line-height: 0}
+    .con .txt{width: 3rem;padding-left: .2rem;padding-right: .2rem;text-align: justify;}
+    .con .txt h4{font-weight: normal;font-size: 0.26rem;margin-top: 0.12rem;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
+    .con .txt span{font-weight: lighter;font-size: 0.24rem;line-height: 0.36rem;display: block;height: 1.08rem;overflow: hidden;}
+  </style>
+  <script src="js/jquery-1.10.1.min.js"></script>
+  <script>
+      (function (doc, win) {
+       var docEl = doc.documentElement,
+           resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+           recalc = function () {
+               var clientWidth = docEl.clientWidth;
+               if (!clientWidth) return;
+               if(clientWidth>=640){
+                   docEl.style.fontSize = '100px';
+               }else{
+                   docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+               }
+           };
+ 
+       if (!doc.addEventListener) return;
+       win.addEventListener(resizeEvt, recalc, false);
+       doc.addEventListener('DOMContentLoaded', recalc, false);
+   })(document, window);
+  </script>
+ </head> 
+ <body>   
+    <div class="header">
+      <div class="logo"><img src="images/logo.png" alt="" width="100%"></div>
+    </div>
+
+    <div class="con">
+      <ul>
+        <li>
+          <a href="">
+            <div class="pic"><img src="images/pic1.gif" alt="" width="100%"></div>
+            <div class="txt">
+              <h4>长期以来国际贸易</h4>
+              <span>长期以来，国际贸易 P5的特点：第一，重系统建设、轻战略制定。第二，重</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <div class="pic"><img src="images/pic2.gif" alt="" width="100%"></div>
+            <div class="txt">
+              <h4>长期以来国际贸易</h4>
+              <span>长期以来，国际贸易 P5的特点：第一，重系统建设、轻战略制定。第二，重</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <div class="pic"><img src="images/pic1.gif" alt="" width="100%"></div>
+            <div class="txt">
+              <h4>长期以来国际贸易</h4>
+              <span>长期以来，国际贸易 P5的特点：第一，重系统建设、轻战略制定。第二，重</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <div class="pic"><img src="images/pic2.gif" alt="" width="100%"></div>
+            <div class="txt">
+              <h4>长期以来国际贸易</h4>
+              <span>长期以来，国际贸易 P5的特点：第一，重系统建设、轻战略制定。第二，重</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <div class="pic"><img src="images/pic1.gif" alt="" width="100%"></div>
+            <div class="txt">
+              <h4>长期以来国际贸易</h4>
+              <span>长期以来，国际贸易 P5的特点：第一，重系统建设、轻战略制定。第二，重</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="f_box"></div>
+    <div class="footer">
+      <div class="li li1">
+        <i><img src="images/li1.png" alt="" width="100%"></i>
+        <span>010-12345</span>
+      </div>
+      <div class="li li2">
+        <i><img src="images/li2.png" alt="" width="100%"></i>
+        <span>在线咨询</span>
+      </div>
+      <div class="li li3">
+        <i><img src="images/li3.png" alt="" width="100%"></i>
+        <span>找课程</span>
+      </div>
+    </div>
+ </body>
+
+</html>

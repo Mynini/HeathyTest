@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="UTF-8" /> 
+  <meta name="apple-mobile-web-app-capable" content="yes" /> 
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" /> 
+  <meta name="viewport" content="width=240, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" /> 
+  <meta name="format-detection" content="telephone=no, email=no" /> 
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <title>无标题文档</title>
+  
+  <style>
+    *{ margin: 0; padding: 0;}
+    html{font-size: 62.5%;}
+  </style>
+ </head> 
+ <body>   
+    <!-- 为方便计算 rem 值，设置 html font-size:62.5% -->
+    <!-- 16px → 100% ，10px → 62.5% -->
+    <!-- rem = 元素 px 值 / 10 -->
+    <p>因 html 设置 font-size:62.5%,所以字体初始为10px</p>
+    <p style="font-size: 1.4rem">此处字体为 1.4rem ,计算后字体为 14px</p>
+    <div class="box1" style="width: 200px;height: 200px;background-color: #1abc9c;color: #fff;font-size: 16px">
+      使用px为单位<br>width:200px<br>height:200px <br>font-size:16px
+    </div>
+    <div class="box2" style="width: 20rem;height: 20rem;background-color: #4aa3df;color: #fff;font-size: 1.6rem">
+      使用rem为单位<br>width:20rem<br>height:20rem <br>font-size:1.6rem
+    </div>
+ </body>
+</html>
