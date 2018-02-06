@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+
+<script>
+
+var arr = [ '100px', 'abc'-6, [], -98765, 34, -2, 0, '300', , function(){alert(1);}, null, document, [], true, '200px'-30,'23.45元', 5, Number('abc'), function(){ alert(3); }, 'xyz'-90 ];
+
+var arr1=arr;
+
+/*
+	1、找到arr里所有的数字：-98765, 34, -2, 0, 5
+	2、找到可以转成数字的：'100px', -98765, 34, -2, 0, '300', '23.45元',  5 
+	3、把转成数字以后，最大值判断出来：300
+	4、把 NaN 所在的位置找出来：1 14 17  19
+*/
+
+//1 找到arr里所有的数字   利用NaN!=NaN
+var arr_num=[];
+
+//2 找到可以转成数字的
+var arr_string=[];
+
+//3 转成数字并且找最大
+var arr_str_num=[];
+var large_num=0;
+
+for(var i=0;i<arr.length;i++){
+	
+	
+	
+    if(typeof(arr[i])=='number'&& !(arr[i]!=arr[i])){
+		arr_num.push(arr[i]);
+	}
+    
+    
+    if((parseInt(arr[i])||typeof(arr[i])=='number')&& !(arr[i]!=arr[i])){
+    	arr_string.push(arr[i])
+    }
+    
+	
+}
+
+
+for(var i=0;i<arr_string.length;i++){
+	arr_str_num.push(parseFloat(arr_string[i]))
+}
+
+for(var i=0;i<arr_str_num.length-1;i++){
+	arr_str_num[i+1]>arr_str_num[i]? large_num=arr_str_num[i]:large_num=arr_str_num[i+1];
+	
+
+
+}
+console.log(large_num)
+
+
+
+
+
+
+
+</script>
+
+</head>
+
+<body>
+</body>
+</html>

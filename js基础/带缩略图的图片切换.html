@@ -7,13 +7,14 @@
 	<style>
 		.box{width:300px;height:300px;background:red;margin:50px auto 0;position:relative;}
 		.box img{width:100%;height:100%;}
-		.box li{position:absolute;height:100%;display:none;}
+		.box li{position:absolute;height:100%;display:none;width:100%;height:100%;}
 		.box li:first-child{display:block;}
 
         .sul {text-align:center;}
 		.sul li{display:inline-block;margin:0 10px;position: relative;}
 		.sul i{display:block;width:10px;height:10px;background:green;border-radius: 50%;}
-		.sul .img{width:50px;height:50px;border-radius: 5px;position:absolute;background:yellow;left:-20px;top:-60px;display:none;}
+		.sul span{width:50px;height:50px;border-radius: 5px;position:absolute;background:yellow;left:-20px;top:-60px;display:none;}
+		.sul span.active{display:block;}
 		.sul .active i{background:red;}
 		.sul img{width:100%;height:100%;}
 
@@ -28,76 +29,74 @@
 
 <div  class="box" id='box'>
 	<ul>
-		<li><img src="http://www.taopic.com/uploads/allimg/140702/240495-140F216321759.jpg" alt=""></li>
-		<li><img src="http://pic9.nipic.com/20100916/2531170_131413079748_2.jpg" alt=""></li>
-		<li><img src="http://pic32.nipic.com/20130827/12906030_123121414000_2.png" alt=""></li>
+		<li style="background:red"></li>
+		<li style="background:blue;"></li>
+		<li style="background:blueviolet"></li>
 	</ul>
 	<button class="btn1">prev</button>
 	<button class="btn2">next</button>
 </div>
 
 <ul class="sul" id='sul'>
-	<li class='active'><i></i><img src="http://www.taopic.com/uploads/allimg/140702/240495-140F216321759.jpg" alt="" class='img'></li>
-	<li><i></i><img src="http://pic9.nipic.com/20100916/2531170_131413079748_2.jpg" alt="" class='img'></li>
-	<li><i></i><img src="http://pic32.nipic.com/20130827/12906030_123121414000_2.png" alt="" class='img'></li>
+	<li><i></i><span></span></li>
+	<li><i></i><span></span></li>
+	<li><i></i><span></span></li>
 </ul>
 
 <script>
 	window.onload=function(){
+		
+		//关键点是num 通过num去更新状态
+		
+		
 		//取dom
 		var $box=document.getElementById("box");
 		var $box_li=$box.getElementsByTagName("li");
 		
 		var $sul=document.getElementById("sul");
 		var $sul_li=$sul.getElementsByTagName("li");
+		var $sul_img=$sul.getElementsByTagName("span");
 
 		var $btn=document.getElementsByTagName("button");
 
 		var num=0;
 		var lin=$box_li[num];
+		$sul_li[num].className="active"
+
 
         //prev点击
 		$btn[0].onclick=function(){
-			if(num<=0){
-				num==0;
-			}else{
-				num--;
-				for(var i=0;i<$box_li.length;i++){
-					$box_li[i].style.display="none"
-				}
-			    $box_li[num].style.display="block";
-
-			    $sul_li[num].setAttrbute=
-			    lin=$box_li[num];
-			}
-			
+			num<=0? num=0:num--;
+			change();
 		}
         
         //next点击
 		$btn[1].onclick=function(){
-			if(num>=2){
-				num==2;
-			}else{
-				num++;
-				for(var i=0;i<$box_li.length;i++){
-					$box_li[i].style.display="none"
-				}
-			    $box_li[num].style.display="block";
-			    lin=$box_li[num];
-			}
+			num>=2?num==2:num++;
+			change();
 		}
-
+		
 		// 小点点击
 	    for(var i=0;i<$sul_li.length;i++){
 	    	$sul_li[i].index=i;
-	    	$sul_li[i].onclick=function(){
 
-	    		lin.style.display="none";
-	    		$box_li[this.index].style.display="block";
+	    	$sul_li[i].onclick=function(){
 	    		num=this.index;
-	    		lin=$box_li[this.index];
+	    		change();
 
 	    	}
+	    }
+	    
+	    
+	    function change(){
+	    	for(var i=0;i<$box_li.length;i++){
+				$box_li[i].style.display="none";
+				$sul_li[i].className="";
+				$sul_img[i].className="";
+			}
+		    $box_li[num].style.display="block";
+		    $sul_li[num].className="active";
+		    $sul_img[num].className="active";
 	    }
 
        
