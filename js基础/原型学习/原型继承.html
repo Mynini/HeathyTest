@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<script>
+		window.onload=function(){
+			var A=function (){
+				this.a=10;
+			}
+			A.prototype.box=function(){
+				this.s=document.getElementById("box").style.backgroundColor="red";
+				return this.s
+			}
+			var A=new A()
+			console.log(A.box())  //P__undifined
+
+            function C(){this.b=10;}
+            C.prototype.box=function(){
+				this.s=document.getElementById("box").style.backgroundColor="red";
+				return this.s    }  
+			var B=new C(); 
+
+			console.log(B.box())          // p__red 
+
+
+			B.b=function(){
+				this.b=10;
+			}
+			B.b.prototype.hi=function(){
+				this.s=document.getElementById("box").style.backgroundColor="red";
+				return this.s
+			}
+		    var haha=new B.b();
+
+			console.log(haha instanceof B.b);  //p_true
+			console.log(haha instanceof C);  //p_false 
+
+
+
+		}
+	</script>
+</head>
+<body>
+
+<ul id="box">
+    <li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>3</li>
+</ul>
+	
+</body>
+</html>

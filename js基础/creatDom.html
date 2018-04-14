@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	
+    <script>
+    //liyulan
+	var operateDom={};
+	
+	//通过class获取当前dom  返回一个数组
+		// arr={
+		//   arr.parent:"父级id名",
+		//   arr.ele:"tagName",
+		//   arr.sClass:"要获取的class名",
+		//   arr.way:"获取的是div类标签还是svg标签" 默认是svg标签
+		// }
+	operateDom.getClass=function(arr){
+	
+		var $parent=document.getElementById(arr.parent);
+		var $classArr=$parent.getElementsByTagName(arr.ele);
+		this.claLArr=[];
+	
+		for(var i=0;i<$classArr.length;i++){
+			var claArr;
+			arr.way?  claArr=$classArr[i].className.baseVal.split(" "):claArr=$classArr[i].className.split(" ");
+			
+			for(var j=0;j<claArr.length;j++){
+				if(claArr[j]==arr.sClass){
+				 	this.claLArr.push($classArr[i])
+				}
+			}
+		}
+	
+	}
+    	// liyulan
+	// var $blocklyFlyout=new operateDom.getClass({
+	// 	parent:"blocklyDiv",
+	// 	ele:"svg",
+	// 	sClass:"blocklyFlyout",
+	// 	way:true	
+	// })
+	// var $blocklyFlayoutWrap=document.createElement("div");
+	 //    $blocklyFlayoutWrap.setAttribute("css","blocklyFlayoutWrap")
+	
+	 //    var $parent=$blocklyFlyout.claLArr[0].parentNode;
+	 //    $parent.insertBefore($blocklyFlayoutWrap,$blocklyFlyout.claLArr[0])
+	   
+	 //    var $oldEle=$blocklyFlyout.claLArr[0].cloneNode(true);
+	 //    var $nextSibing=$blocklyFlyout.claLArr[0].nextSibling;
+	
+	 //    $parent.removeChild($blocklyFlyout.claLArr[0])
+	 //    $blocklyFlayoutWrap.appendChild($oldEle)
+	
+	 //    console.log($blocklyFlyout.claLArr[0])
+    </script>
+	<body>
+	</body>
+</html>

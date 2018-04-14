@@ -5,32 +5,25 @@
 	<title>Document</title>
 
 	<script>
-		window.onload=function(){
-			var box=document.getElementById("box");
-			var Li=document.getElementsByTagName("li");
-			for(var i=2;i<4;i++){
-  
-				// Li[i].onclick =function(i){
-				// 	console.log(i);
-				// 	// alert(i);
-				// 	for(var i=0;i<3;i++){
-      
-				// 	}
-
-				// }
-				var a=function(){
-					alert(i);
-				}
-				console.log(a());
-
-			}
+		var a=0;
+		var b=0
+		function start(){
+			b=10;
+			console.log(b)
+			
 		}
+		
+
+		function h(){
+			console.log(1)
+		}
+		
 	</script>
 </head>
 <body>
 
-<ul id="box">
-    <li>1</li>
+<ul id="box" onload="start()">
+    <li onclick="h()" style="background:red;width:100%;height:100px;">1</li>
 	<li>2</li>
 	<li>3</li>
 	<li>3</li>
@@ -38,3 +31,37 @@
 	
 </body>
 </html>
+
+<!--// liyulan
+	var s=this.workspace.topBlocks_.length-1;
+	if(this.type==this.workspace.topBlocks_[s].type){
+		
+		this.svgGroupParentWith=parseInt(this.workspace.topBlocks_[s].svgGroup_.parentNode.getBoundingClientRect().width)
+		// console.log(typeof this.svgGroupParentWith)
+		// console.log(typeof this.svgGroup_.nearestViewportElement.clientWidth)
+
+　　　　var xa=this.svgGroupParentWith;
+		var xb=this.svgGroup_.nearestViewportElement.clientWidth;
+		if(xa<xb){
+			console.log(xa)
+			console.log(xb)
+			this.blocklyWorkspace_tX=parseInt((this.svgGroup_.nearestViewportElement.clientWidth-this.svgGroupParentWith)/2);
+		    this.workspace.topBlocks_[s].svgGroup_.parentNode.parentNode.setAttribute("transform","translate("+this.blocklyWorkspace_tX+",0)");
+		}
+
+		
+
+	}
+	
+
+var s=this.workspace.topBlocks_.length-1;
+	if(this.type==this.workspace.topBlocks_[s].type){
+		var  svgGroupParentWith=parseInt(this.workspace.topBlocks_[s].svgGroup_.parentNode.getBoundingClientRect().width)
+		var tX=parseInt((this.svgGroup_.nearestViewportElement.clientWidth-svgGroupParentWith)/2);
+		var Floutworkspace=this.workspace.topBlocks_[s].svgGroup_.parentNode.parentNode
+		if(svgGroupParentWith<this.svgGroup_.nearestViewportElement.clientWidth){
+		    Floutworkspace.setAttribute("transform","translate("+tX+","+0+")");
+		}else{
+            Floutworkspace.setAttribute("transform","translate("+0+","+0+")");
+		}
+	}-->
