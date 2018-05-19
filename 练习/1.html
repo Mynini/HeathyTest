@@ -3,65 +3,70 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-
+<style>
+p { border:10px solid #ccc; background:#FFC; width:400px; padding:20px; font-size:16px; font-family:微软雅黑; margin:40px auto 0; }
+</style>
 	<script>
-		var a=0;
-		var b=0
-		function start(){
-			b=10;
-			console.log(b)
-			
-		}
-		
+	window.onload=function(){
+        
+        var ul=document.getElementById("ul")
+        var li=document.getElementsByTagName("li")
+       
+        for(var i=0;i<li.length;i++){
+            li[i].index=i
+            li[i].onclick=function(){
+                if(this.index==0){
+                    return;
+                }else{
+                    var s=nextSibling_(this,false).cloneNode(true)
+                    var ele2=nextSibling_(this,true)
+                    ul.replaceChild(this,ele2)
+                    console.log(li[this.index])
 
-		function h(){
-			console.log(1)
-		}
-		
+                    // for(var j=0;i<li.length;j++){
+                    //     this.index=j
+                    // }
+                    insertAfter(this,s)
+                }
+            }
+        }
+
+        function nextSibling_(obj,btn){
+                elem=obj.nextSibling;
+                if(elem.nodeType==3){
+                    elem=elem.nextSibling
+                }
+                return elem;
+            }else{
+                elem=obj.previousSibling;
+                if(elem.nodeType==3){
+                    elem=elem.previousSibling
+                }
+                return elem;
+            }            
+        }
+        function insertAfter(obj,newobj){
+            if(obj.index==li.length-1){
+                ul.appendChild(newobj)
+            }else{
+                console.log(nextSibling_(obj,true))
+                ul.insertBefore(nextSibling_(obj,true),newobj)
+            }
+        }
+
+
+    }
 	</script>
+
 </head>
 <body>
-
-<ul id="box" onload="start()">
-    <li onclick="h()" style="background:red;width:100%;height:100px;">1</li>
-	<li>2</li>
-	<li>3</li>
-	<li>3</li>
+<span>这是点击上移下移</span>
+<ul id="ul" name="kk">
+     <li>这是li1</li>
+     <li>这是li2</li>
+     <li>这是li3</li>
+     <li>这是li4</li>
+     <li>这是li5</li>
 </ul>
-	
 </body>
 </html>
-
-<!--// liyulan
-	var s=this.workspace.topBlocks_.length-1;
-	if(this.type==this.workspace.topBlocks_[s].type){
-		
-		this.svgGroupParentWith=parseInt(this.workspace.topBlocks_[s].svgGroup_.parentNode.getBoundingClientRect().width)
-		// console.log(typeof this.svgGroupParentWith)
-		// console.log(typeof this.svgGroup_.nearestViewportElement.clientWidth)
-
-　　　　var xa=this.svgGroupParentWith;
-		var xb=this.svgGroup_.nearestViewportElement.clientWidth;
-		if(xa<xb){
-			console.log(xa)
-			console.log(xb)
-			this.blocklyWorkspace_tX=parseInt((this.svgGroup_.nearestViewportElement.clientWidth-this.svgGroupParentWith)/2);
-		    this.workspace.topBlocks_[s].svgGroup_.parentNode.parentNode.setAttribute("transform","translate("+this.blocklyWorkspace_tX+",0)");
-		}
-
-		
-
-	}
-	
-
-var s=this.workspace.topBlocks_.length-1;
-	if(this.type==this.workspace.topBlocks_[s].type){
-		var  svgGroupParentWith=parseInt(this.workspace.topBlocks_[s].svgGroup_.parentNode.getBoundingClientRect().width)
-		var tX=parseInt((this.svgGroup_.nearestViewportElement.clientWidth-svgGroupParentWith)/2);
-		var Floutworkspace=this.workspace.topBlocks_[s].svgGroup_.parentNode.parentNode
-		if(svgGroupParentWith<this.svgGroup_.nearestViewportElement.clientWidth){
-		    Floutworkspace.setAttribute("transform","translate("+tX+","+0+")");
-		}else{
-            Floutworkspace.setAttribute("transform","translate("+0+","+0+")");
-		}
-	}-->

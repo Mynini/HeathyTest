@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+p { border:10px solid #ccc; background:#FFC; width:400px; padding:20px; font-size:16px; font-family:微软雅黑; margin:40px auto 0; }
+</style>
+	<script>
+		window.onload=function(){
+	          
+          // 绑定事件
+          function bindEvent(obj,events,fn){
+          	//obj=楼层
+          	//events=书架
+          	//fn:一本书 
+          	obj.listeners=obj.listeners||{};  //没有楼层就创建楼层
+          	obj.listeners[events]=obj.listeners[events] ||[]  //没有书架就创建书架
+
+          	obj.listeners[events].push(fn);
+
+          	if(obj.addEventListener){
+          		obj.addEventListener(events,fn,false)
+          	}else{
+          		obj.attactEvent("on"+events,fn)
+          	}
+
+          }
+
+          //主动触发自定义事件
+          function fireEvents(obj,events){
+          	for(var i=0;i<obj.Listeners[events].length;i++){
+          		obj.listeners[events][i]();
+          	}
+          }
+
+          
+          function hide(){
+          	console.log(2)
+          }
+          function show(){
+          	console.log(3)
+          }
+
+          var span=document.getElementsByTagName("span")[0];
+
+          bindEvent(span,"click",hide)  //都执行了
+          bindEvent(span,"click",show)  //都执行了
+
+
+	    }
+	</script>
+	<style>
+		#box{width:100px;}
+	</style>
+</head>
+<body>
+
+<span>hhwh</span>
+	
+</body>
+</html>

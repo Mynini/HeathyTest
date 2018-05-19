@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+
+//类 : JS是没有类的概念的 , 把JS中的构造函数看做的类
+	
+//要做属性和方法继承的时候，要分开继承
+	
+// function Aaa(){   //父类
+// 	this.name = [1,2,3];
+// }	
+// Aaa.prototype.showName = function(){
+// 	alert( this.name );
+// };
+// function Bbb(){   //子类}
+// Bbb.prototype = new Aaa();   //这句话就是类式继承  同时继承父级的属性和方法
+
+// console.log(Bbb.constructor)  //-> Aaa    
+
+
+
+
+// function Aaa(){   //父类
+// 	this.name = [1,2,3];
+// }	
+// Aaa.prototype.showName = function(){
+// 	alert( this.name );
+// };
+// function Bbb(){   //子类
+	
+// }
+// Bbb.prototype = new Aaa();
+// Bbb.prototype.constructor = Bbb; //修正指向问题
+
+// var a=new Bbb();
+// a.name.push(5) 
+
+// var c=new Aaa()
+// c.name.push(9)   
+
+// var b=new Bbb();
+
+// console.log(b.name) //->b.name=[1,2,3,5]   两个新建立对象互相影响
+
+
+
+
+
+
+
+function Aaa(){   //父类
+	this.name = [1,2,3];
+}	
+Aaa.prototype.showName = function(){
+	alert( this.name );
+};
+function Bbb(){   //子类
+	Aaa.call(this)   //继承Aaa的属性
+}
+
+function F(){};
+F.prototype=Aaa.prototype;  //F只继承了 Aaa的方法
+
+Bbb.prototype = new F();
+Bbb.prototype.constructor = Bbb; //修正指向问题
+
+var a=new Bbb();
+a.name.push(5) 
+
+var b=new Bbb();
+
+console.log(b.name) //->b.name=[1,2,3]   两个新建立对象互相影响
+
+
+
+
+
+
+</script>
+</head>
+
+<body>
+</body>
+</html>
