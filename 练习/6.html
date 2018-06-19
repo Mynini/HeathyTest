@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+  <script>
+  	window.onload=function(){
+  		function A(name,btn){
+  			this.name=name;
+  			this.btn=btn;
+  			console.log(this.name)
+  		}
+  		A.prototype.con=function(){
+  			console.log(this.name)
+  			console.log(this.btn)
+  		}
+
+  		function B(name,btn,c){
+  			A.call(this,name,btn)
+            this.c=c;
+  		}
+
+  		var s=new B("name",true,"c")
+  		console.log(s.con)
+
+  	}
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
