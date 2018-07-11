@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="tool_develop.js"></script>
+</head>
+
+<body>
+    <div id="box" name="hah">
+        <div class="box 96">56052</div>
+        <div class="box">56052</div>
+        <div class="box">56052</div>
+        <div class="box">56052</div>
+        <div class="box">56052</div>
+    </div>
+    <script>
+ 
+
+    window.onload = function() {
+        function getClass(className) {
+            var objArr = []
+            var f = document.getElementById("box");
+            var x = 0;
+
+            objLikeArr = f.getElementsByTagName("*");
+
+            Fre.each(objLikeArr, function(i, item) {
+
+                if (item.className && (item.className).length > 0) {
+
+                    var classArr = item.className.split(" ");
+
+                    Fre.each(classArr, function(j, jitem) {
+                        // console.log(item.className)
+
+
+                        if (jitem == className) {
+                            objArr[x] = item;
+                            x++;
+
+                            // objArr.push(item)
+                        }
+                    })
+                }
+            })
+
+            return objArr;
+
+        }
+
+	   var arr = getClass("box")
+	    console.log(arr)        
+    }
+    </script>
+</body>
+
+</html>

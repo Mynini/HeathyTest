@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<script src="tool.js"></script>
-	<script>
-		window.onload=function(){
-			var div=$f("#div",false)
-			console.log(div)
-			// div.style.background="red"
-			console.log(document.getElementById("div"))
-		}
-	</script>
 
-	<style>
-		#div{width:100px;height:100px;background:red;}
-	</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="tool_develop.js"></script>
+    <!-- <script src="test.js"></script> -->
+    <script>
+    window.onload = function() {
+        var s = $F("div[name=ha]")
+
+        console.log(s)
+    }
+    </script>
+    <style>
+    #div {
+        width: 100px;
+        height: 100px;
+        background: red;
+    }
+    </style>
 </head>
+
 <body>
-	
-	<div id="div" >哈哈</div>
+    <div id="div" class="div div6">哈哈</div>
+    <div class="div" name="box">33</div>
+    <div id="div" class="div" name="ha">哈哈</div>
 </body>
+
 </html>
