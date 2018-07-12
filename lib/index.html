@@ -8,11 +8,16 @@
     <!-- <script src="test.js"></script> -->
     <script>
     window.onload = function() {
-        // var div=$F(".div").find("p");
-        // var s=$F("sp");
-        var div=$F(".div");
-
+        var div=$F(".div").set({
+            width: "100px",
+            height: "200px",
+            name:"20px"
+        });
         console.log(div)
+        // var s=$F("sp");
+        // var div=$F(".div");
+
+        
 
     }
     </script>
@@ -27,8 +32,8 @@
 
 <body>
     <div id="div" class="div div6"><p></p></div>
-    <span class="div" name="box">33</span>
-    <div id="div1" class="div" name="ha">哈哈</div>
+    <span class="div" name="box"></span>
+    <div id="div1" class="div" name="ha"><p></p></div>
     <div id="box">哈哈</div>
 </body>
 
