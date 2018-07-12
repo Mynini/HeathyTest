@@ -8,9 +8,12 @@
     <!-- <script src="test.js"></script> -->
     <script>
     window.onload = function() {
-        var s = $F("div[name=ha]")
+        // var div=$F(".div").find("p");
+        // var s=$F("sp");
+        var div=$F(".div");
 
-        console.log(s)
+        console.log(div)
+
     }
     </script>
     <style>
@@ -23,9 +26,10 @@
 </head>
 
 <body>
-    <div id="div" class="div div6">哈哈</div>
-    <div class="div" name="box">33</div>
-    <div id="div" class="div" name="ha">哈哈</div>
+    <div id="div" class="div div6"><p></p></div>
+    <span class="div" name="box">33</span>
+    <div id="div1" class="div" name="ha">哈哈</div>
+    <div id="box">哈哈</div>
 </body>
 
 </html>

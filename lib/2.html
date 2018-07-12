@@ -10,15 +10,56 @@
 	<button id='btn'>按钮</button>
 <script type="text/javascript">
     
-    var str=".div[ ]";
+    var a=[1,2];
+    var b=[2,3];
 
-    var rq=/^(\.[a-z]+[0-9]*\w*|[a-z]+[1-9]?)\s*\[\s*(([a-zA-z]+\w*)\s*=\s*(\w+))?\s*\]|\s$/;
+    var a=10;
+    var b=document.getElementById("a");
 
-   var s=rq.exec(str)
-   console.log(s)
+    if( b.push){
+    	console.log(1)
+    }
 
 
 </script>
 	
 </body>
 </html>
+
+ <!-- // Take an array of elements and push it onto the stack
+        pushStack: function(elems){
+
+            // Build a new jQuery matched element set
+            var ret=Fre.merge( this.constructer(),elems)
+
+            // Add the old object onto the stack (as a reference)
+            ret.context = context;
+            ret.preObject = this;
+
+            return ret;
+
+        } -->
+
+<!-- 
+ merge: function( first,second) {
+
+            var l = second.length,
+            i = first.length,
+            j = 0,
+
+            if( typeof l === "number"){
+                for(; j < l; j++){
+                    first[ i++ ] =second[ j++ ];
+                }
+            }else{
+                while ( second[j] !== undefined){
+                    first[i++] = second[ j++ ];
+                }
+            }
+
+            first.length = i;
+
+            return first;
+
+        },
+ -->

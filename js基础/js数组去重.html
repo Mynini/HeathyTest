@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    // 方法一:双层循环，外层循环元素，内层循环时比较值 如果有相同的值则跳过，不相同则push进数组
+    Array.prototype.uniq1 = function() {
+        var i,
+            result = [],
+            j,
+            len = this.length;
+
+        for (i = 0; i < len; i++) {
+
+            for (j = i + 1; j < len; j++) {
+
+                if (this[i] == this[j]) {
+                    j = ++i;
+                }
+            }
+
+            result.push(this[i])
+        }
+
+        return result;
+    }
+
+    // 方法二:  利用splice直接在原数组进行操作  利用splice直接在原数组进行操作 值相同时，则删去这个值 注意点:删除元素之后，需要将数组的长度也减1.
+    // 缺点: 会改变原数组
+    Array.prototype.uniq2 = function() {
+
+        var i,
+            j,
+            len = this.length;
+
+        for (i = 0; i < len; i++) {
+
+            for (j = i + 1; j < len; j++) {
+
+                if (this[i] == this[j]) {
+                    this.splice(j, 1);
+                    len--;
+                    j--;
+                }
+            }
+        }
+
+        return this;
+
+    }
+
+
+    // 方法三: 利用对象的属性不能相同的特点进行去重
+    Array.prototype.uniq3 = function() {
+        var i,
+            obj = {},
+            len = this.length,
+            result = [];
+
+        for (i = 0; i < len; i++) {
+
+            if (!obj[this[i]]) {
+                obj[this[i]] = 1;
+                result.push(this[i]);
+            }
+        }
+
+        return result
+    }
+
+    //方法四: 数组递归去重  运用递归的思想 先排序，然后从最后开始比较，遇到相同，则删除
+    Array.prototype.uniq4 = function() {
+
+        var len = this.length,
+            arr;
+
+        arr = this.sort(function(a, b) {
+            return a - b;
+        })
+
+        function loop(index) {
+
+            if (index >= 1) {
+
+                if (arr[index] === arr[index - 1]) {
+                    arr.splice(index, 1);
+                }
+                loop(index - 1);
+            }
+
+
+        }
+
+        loop(len - 1);
+        return arr;
+    }
+
+    // 方法五 :  利用indexOf以及forEach
+    Array.prototype.uniq5 = function() {
+
+        var len = this.length,
+            result = [],
+            arr = this;
+
+        arr.forEach(function(v, i, arr) {
+
+            var bool = arr.indexOf(v, i + 1);
+            if (bool === -1) {
+                result.push(v);
+            }
+        })
+
+        return result;
+    }
+
+    // 方法六 : 利用ES6的set
+    function combine(array) {
+
+        // let arr =[].concat.applay([], arguments);
+        // return Array.from(new Set(arr));
+        return Array.from(new Set(array));
+        //Array.from 可以用来创建数组对象：
+        //Set Set本身是一个构造函数，用来生成Set数据结构  Set可以接受一个数组（或者类数组对象）作为参数，用来初始化
+        //var set = new Set([1, 2, 3, 4, 4]);
+        //[...set]; // [1, 2, 3, 4]
+    }
+
+
+
+
+    var arr = [1, 2, 3, 4, 5, 4, 3];
+
+    var b;
+    // b= arr.uniq1();
+    // b = arr.uniq2();
+    // b = arr.uniq3();
+    // b = arr.uniq4();
+    // b = arr.uniq5();
+    b = combine(arr);
+    // console.log(b)
+    // 
+    let c = [2, 3, 4, 2];
+    let ii = [...new Set(c)]
+    console.log(ii)
+
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

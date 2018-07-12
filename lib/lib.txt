@@ -1,18 +1,18 @@
-//å…¥å£æ”¯æŒ9ç§æ–¹å¼å¤„ç†
+//Èë¿ÚÖ§³Ö9ÖÖ·½Ê½´¦Àí
 // 1.$(document)   
-// 2.$(â€˜<div>â€™) 
-// 3.$(â€˜divâ€™) 
-// 4.$(â€˜#testâ€™)  
+// 2.$(¡®<div>¡¯) 
+// 3.$(¡®div¡¯) 
+// 4.$(¡®#test¡¯)  
 // 5.$(function(){}) 
 // 6.$("input:radio", document.forms[0]); 
-// 7.$(â€˜inputâ€™, $(â€˜divâ€™)) 
+// 7.$(¡®input¡¯, $(¡®div¡¯)) 
 // 8.$() 
 // 9.$("<div>", { 
 //          "class": "test", 
 //          text: "Click me!", 
 //          click: function(){ $(this).toggleClass("test"); } 
 //       }).appendTo("body"); 
-// 10$($(â€˜.testâ€™))
+// 10$($(¡®.test¡¯))
 
 
 (function(window, undefined) {
@@ -38,10 +38,9 @@
     Fre.fn = Fre.prototype = {
         constructor: Fre,
 
-        //åŸjqueryæ‰€æœ‰æƒ…å†µï¼šFre(elem) ,Fre(jquery obj), Fre(selector [,context]) , Fre(html,attr) ,Fre(callback) 
+        //Ô­jqueryËùÓĞÇé¿ö£ºFre(elem) ,Fre(jquery obj), Fre(selector [,context]) , Fre(html,attr) ,Fre(callback) 
         init: function(selector, context, rootFre) {
-            var i = 0,
-                match, elem;
+            var i = 0,match, elem;
 
             //Handle:$("") ,$(null) ,$(undefined) ,$(false)
             if (!selector) {
@@ -57,7 +56,7 @@
                     match = rquickExpr.exec(selector);
                 }
                 // Handel:Match html or make sure no context is specified for #id
-                // å¦‚æœæ˜¯selector ä¸æ˜¯htmlå­—ç¬¦ä¸² ï¼Œmatch[1]=undefined
+                // Èç¹ûÊÇselector ²»ÊÇhtml×Ö·û´® £¬match[1]=undefined
                 if (match && (match[1] || !context)) {
 
                     // HANDLE: $F(html) -> $F(array)
@@ -93,15 +92,15 @@
                 //Handle:$F(document)
             } else if (selector.nodeType) {
 
-                this.context = this[0] = selector;
+                this.context=this[0] = selector;
                 this.length = 1;
 
                 return this;
             }
 
-            if (selector.selector !== undefined) {
-                this.selector = selector.selector;
-                this.context = selector.context;
+            if(selector.selector !== undefined){
+                this.selector =selector.selector;
+                this.context =selector.context;
             }
 
 
@@ -109,41 +108,25 @@
         selector: "",
 
         // The default length of a jQuery object is 0
-        length: 0,
-
-        // Take an array of elements and push it onto the stack
-        pushStack: function(elems) {
-
-            // Build a new jQuery matched element set
-            var ret = Fre.merge(this.constructor(), elems)
-
-            // Add the old object onto the stack (as a reference)
-            ret.context = this.context;
-            ret.preObject = this;
-
-            return ret;
-
-        }
-
-
+        length: 0
 
     }
-        /** Give the init funciton the Fre prototype for later instantiation */
-        Fre.fn.init.prototype = Fre.fn;
+    /** Give the init funciton the Fre prototype for later instantiation */
+    Fre.fn.init.prototype = Fre.fn;
 
-            //method superposition
+    //method superposition
     Fre.extend = Fre.fn.extend = function() {
         var
-            options, //æŒ‡å‘æŸä¸ªæºå¯¹è±¡
-            name, //è¡¨ç¤ºæºå¯¹è±¡çš„æŸä¸ªå±æ€§åã€‚
-            src, //è¡¨ç¤ºæŸä¸ªç›®æ ‡å¯¹è±¡çš„æŸä¸ªå±æ€§çš„åŸå§‹å€¼ã€‚
-            copy, //è¡¨ç¤ºæŸä¸ªæºå¯¹è±¡çš„æŸä¸ªå±æ€§å€¼
-            copyIsArray, //æŒ‡ç¤ºå˜é‡æ˜¯å¦æ˜¯æ•°ç»„
-            clone, //è¡¨ç¤ºæ·±åº¦å¤åˆ¶æ—¶åŸå§‹å€¼çš„ä¿®æ­£å€¼ 
-            i = 1, //æŒ‡æºå¯¹è±¡çš„èµ·å§‹ä¸‹æ ‡
-            target = arguments[0] || {}, //æŒ‡å‘ç›®æ ‡å¯¹è±¡
-            length = arguments.length, //è¡¨ç¤ºå‚æ•°çš„ä¸ªæ•°ï¼Œç”¨äºä¿®æ­£å˜é‡ targetã€‚
-            deep = false; //è¡¨ç¤ºæ˜¯å¦æ˜¯æ·±åº¦å¤åˆ¶ï¼Œé»˜è®¤false
+            options, //Ö¸ÏòÄ³¸öÔ´¶ÔÏó
+            name, //±íÊ¾Ô´¶ÔÏóµÄÄ³¸öÊôĞÔÃû¡£
+            src, //±íÊ¾Ä³¸öÄ¿±ê¶ÔÏóµÄÄ³¸öÊôĞÔµÄÔ­Ê¼Öµ¡£
+            copy, //±íÊ¾Ä³¸öÔ´¶ÔÏóµÄÄ³¸öÊôĞÔÖµ
+            copyIsArray, //Ö¸Ê¾±äÁ¿ÊÇ·ñÊÇÊı×é
+            clone, //±íÊ¾Éî¶È¸´ÖÆÊ±Ô­Ê¼ÖµµÄĞŞÕıÖµ 
+            i = 1, //Ö¸Ô´¶ÔÏóµÄÆğÊ¼ÏÂ±ê
+            target = arguments[0] || {}, //Ö¸ÏòÄ¿±ê¶ÔÏó
+            length = arguments.length, //±íÊ¾²ÎÊıµÄ¸öÊı£¬ÓÃÓÚĞŞÕı±äÁ¿ target¡£
+            deep = false; //±íÊ¾ÊÇ·ñÊÇÉî¶È¸´ÖÆ£¬Ä¬ÈÏfalse
 
         //Handle a deep copy situation
         if (typeof target === "boolean") {
@@ -162,9 +145,9 @@
 
         //extend Fre itself if only one argument is passed
         /**
-         * å¦‚æœlengthå±æ€§ç­‰äºiçš„å€¼é‚£å°±è¡¨ç¤ºæ²¡æœ‰ç›®æ ‡å¯¹è±¡å­˜åœ¨ï¼Œæ­£å¸¸æƒ…å†µä¸‹lengthåº”è¯¥æ˜¯å¤§äºiçš„å€¼çš„ ï¼Œé‚£ä¹ˆè¿™ä¸ªæ—¶å€™å°±æŠŠthisä½œä¸ºç›®æ ‡å¯¹è±¡æŠŠiå€¼å‡ä¸€å®ç°lengthå€¼å¤§äºiå€¼ï¼ˆæ¯”iå¤§1ï¼‰
-         * è¿™ä¸ªå°±æ˜¯jQueryç»™è‡ªå·±æ‰©å±•å±æ€§çš„æ–¹æ³•çš„å®ç°åŸç†ï¼Œåªè¦ä¸ä¼ å…¥ç›®æ ‡å¯¹è±¡å°±å¯ä»¥å•¦
-         * ä¸¤ç§å¯èƒ½çš„æƒ…å†µï¼š$.extend(obj)    æˆ–è€…  $.extend(false/true,obj)ï¼›
+         * Èç¹ûlengthÊôĞÔµÈÓÚiµÄÖµÄÇ¾Í±íÊ¾Ã»ÓĞÄ¿±ê¶ÔÏó´æÔÚ£¬Õı³£Çé¿öÏÂlengthÓ¦¸ÃÊÇ´óÓÚiµÄÖµµÄ £¬ÄÇÃ´Õâ¸öÊ±ºò¾Í°Ñthis×÷ÎªÄ¿±ê¶ÔÏó°ÑiÖµ¼õÒ»ÊµÏÖlengthÖµ´óÓÚiÖµ£¨±Èi´ó1£©
+         * Õâ¸ö¾ÍÊÇjQuery¸ø×Ô¼ºÀ©Õ¹ÊôĞÔµÄ·½·¨µÄÊµÏÖÔ­Àí£¬Ö»Òª²»´«ÈëÄ¿±ê¶ÔÏó¾Í¿ÉÒÔÀ²
+         * Á½ÖÖ¿ÉÄÜµÄÇé¿ö£º$.extend(obj)    »òÕß  $.extend(false/true,obj)£»
          */
         if (length === i) {
             target = this;
@@ -174,29 +157,29 @@
         for (; i < length; i++) {
 
             //only deel with non-null/undefined values 
-            //åœ¨jsä¸­å¦‚æœä¸åŒºåˆ†ç±»å‹nul==undefined,æ‰€ä»¥ç”¨nullä¹Ÿå¯ä»¥è¿‡æ»¤æ‰undefined
-            //æ¯”å¦‚$.extend(target, {}, null);ä¸­çš„ç¬¬2ä¸ªå‚æ•°nullæ˜¯ä¸å‚ä¸åˆå¹¶çš„
+            //ÔÚjsÖĞÈç¹û²»Çø·ÖÀàĞÍnul==undefined,ËùÒÔÓÃnullÒ²¿ÉÒÔ¹ıÂËµôundefined
+            //±ÈÈç$.extend(target, {}, null);ÖĞµÄµÚ2¸ö²ÎÊınullÊÇ²»²ÎÓëºÏ²¢µÄ
             if ((options = arguments[i]) != null) {
 
                 //Extend the base object
                 for (name in options) {
-                    src = target[name]; //ç›®æ ‡å‚æ•°ä¸­nameå­—æ®µå€¼
-                    copy = options[name]; //å½“å‰å‚æ•°ä¸­nameå­—æ®µå€¼
+                    src = target[name]; //Ä¿±ê²ÎÊıÖĞname×Ö¶ÎÖµ
+                    copy = options[name]; //µ±Ç°²ÎÊıÖĞname×Ö¶ÎÖµ
 
                     //prevent never-ending loop
-                    //è‹¥å‚æ•°ä¸­å­—æ®µçš„å€¼å°±æ˜¯ç›®æ ‡å‚æ•°ï¼Œåœæ­¢èµ‹å€¼ï¼Œè¿›è¡Œä¸‹ä¸€ä¸ªå­—æ®µçš„èµ‹å€¼
+                    //Èô²ÎÊıÖĞ×Ö¶ÎµÄÖµ¾ÍÊÇÄ¿±ê²ÎÊı£¬Í£Ö¹¸³Öµ£¬½øĞĞÏÂÒ»¸ö×Ö¶ÎµÄ¸³Öµ
                     if (target === copy) {
                         continue;
                     }
 
                     //Recurse if we`re mergin plain objects or arrayss
-                    //deep ä¸ºtrue,ä¸”å½“å‰å‚æ•°ä¸­çš„nameå­˜åœ¨ä¸”ä¸ºobjectç±»å‹æˆ–Arrayç±»å‹,åˆ™è¿›è¡Œæ·±åº¦æ‹·è´ï¼Œ
-                    //ï¼ˆæ·±åº¦æ‹·è´å°±æ˜¯åœ¨target å’Œoptins åŒä¸€nameå­—æ®µè¿˜æ˜¯objectæƒ…å†µä¸‹ï¼Œå¯¹å½“å‰nameå­—æ®µé‡Œé¢çš„å­é¡¹è¿›è¡Œé€’å½’å åŠ   ï¼‰
-                    //ï¼ˆæµ…æ‹·è´æ˜¯åœ¨optins target åªè¦æœ‰ç›¸åŒçš„nameå­—æ®µå°±è¦†ç›–å åŠ ï¼‰
+                    //deep Îªtrue,ÇÒµ±Ç°²ÎÊıÖĞµÄname´æÔÚÇÒÎªobjectÀàĞÍ»òArrayÀàĞÍ,Ôò½øĞĞÉî¶È¿½±´£¬
+                    //£¨Éî¶È¿½±´¾ÍÊÇÔÚtarget ºÍoptins Í¬Ò»name×Ö¶Î»¹ÊÇobjectÇé¿öÏÂ£¬¶Ôµ±Ç°name×Ö¶ÎÀïÃæµÄ×ÓÏî½øĞĞµİ¹éµş¼Ó  £©
+                    //£¨Ç³¿½±´ÊÇÔÚoptins target Ö»ÒªÓĞÏàÍ¬µÄname×Ö¶Î¾Í¸²¸Çµş¼Ó£©
                     if (deep && copy && (Fre.isPlainObject(copy) || (copyIsArray = Fre.isArray(copy)))) {
 
-                        //å¦‚æœå½“å‰å‚æ•°çš„å€¼ä¸ºArrayç±»å‹
-                        //åˆ¤æ–­ç›®æ ‡å‚æ•°ä¸­nameå­—æ®µçš„å€¼æ˜¯å¦å­˜åœ¨ï¼Œè¯ºå­˜åœ¨å°±ä½¿ç”¨åŸæ¥çš„ï¼Œä¸ç„¶å°±è¿›è¡Œåˆå§‹åŒ–
+                        //Èç¹ûµ±Ç°²ÎÊıµÄÖµÎªArrayÀàĞÍ
+                        //ÅĞ¶ÏÄ¿±ê²ÎÊıÖĞname×Ö¶ÎµÄÖµÊÇ·ñ´æÔÚ£¬Åµ´æÔÚ¾ÍÊ¹ÓÃÔ­À´µÄ£¬²»È»¾Í½øĞĞ³õÊ¼»¯
                         if (copyIsArray) {
                             copyIsArray = false;
                             clone = src && Fre.isArray(src) ? src : [];
@@ -209,12 +192,12 @@
                         //never move original objects,clone them
                         target[name] = Fre.extend(deep, clone, copy);
 
-                        //deepä¸ºfalse,åˆ™è¡¨ç¤ºæµ…åº¦æ‹·è´ï¼Œç›´æ¥è¿›è¡Œèµ‹å€¼
-                        //è‹¥copyæ˜¯ç®€å•ç±»å‹ä¸”å­˜åœ¨å€¼ï¼Œåˆ™ç›´æ¥è¿›è¡Œèµ‹å€¼
+                        //deepÎªfalse,Ôò±íÊ¾Ç³¶È¿½±´£¬Ö±½Ó½øĞĞ¸³Öµ
+                        //ÈôcopyÊÇ¼òµ¥ÀàĞÍÇÒ´æÔÚÖµ£¬ÔòÖ±½Ó½øĞĞ¸³Öµ
                         //Don`t bring in undefined values
                     } else if (copy !== undefined) {
 
-                        //è‹¥åŸå¯¹è±¡å­˜åœ¨nameå±æ€§ï¼Œåˆ™ç›´æ¥è¦†ç›–æ‰;è‹¥ä¸å­˜åœ¨ï¼Œåˆ™åˆ›å»ºæ–°çš„å±æ€§
+                        //ÈôÔ­¶ÔÏó´æÔÚnameÊôĞÔ£¬ÔòÖ±½Ó¸²¸Çµô;Èô²»´æÔÚ£¬Ôò´´½¨ĞÂµÄÊôĞÔ
                         target[name] = copy;
 
                     }
@@ -247,7 +230,7 @@
             }
 
 
-            //classType å­˜äº†jsçš„æ‰€æœ‰ç±»å‹
+            //classType ´æÁËjsµÄËùÓĞÀàĞÍ
             return typeof obj === "object" || typeof obj === "function" ?
                 classType[CT_string(obj)] || "object" : typeof obj;
 
@@ -284,7 +267,7 @@
 
             } else {
 
-                //å¦‚æœobjæ˜¯æ•°ç»„
+                //Èç¹ûobjÊÇÊı×é
                 if (isArray) {
                     for (; i < length; i++) {
                         value = callbacks.call(obj[i], i, obj[i]);
@@ -294,7 +277,7 @@
                         }
                     }
 
-                    //å¦‚æœobjæ˜¯json
+                    //Èç¹ûobjÊÇjson
                 } else {
 
                     for (i in obj) {
@@ -323,27 +306,7 @@
         isArray: Array.isArray,
 
         //merge
-        merge: function(first, second) {
-
-            var l = second.length,
-                i = first.length,
-                j = 0;
-
-                if (typeof l === "number") {
-                    for (; j < l; j++) {
-                        first[i++] = second[j++];
-                    }
-                } else {
-                    while (second[j] !== undefined) {
-                        first[i++] = second[j++];
-                    }
-                }
-
-            first.length = i;
-
-            return first;
-
-        },
+        merge: function() {},
 
         //toArray
         toArray: function(array) {
@@ -361,32 +324,36 @@
 
     Fre.fn.extend({
         find: function(selector) {
-
             var self = this,
-                ret = [],
+                arr = [],
                 len = self.length,
-                i;
+                findArr;
 
-            for (i = 0; i < len; i++) {
-                ret = Fre.find(selector, self[i]);
+            arr = Fre.find(selector)
+
+            if (!arr.length) {
+                return self;
             }
 
-            console.log(ret)
 
-            ret = this.pushStack(ret);
-            ret.selector =this.selector ? this.selector + " " +selector : selector; 
+            Fre.each(arr, function(i, item) {
+                self[i] = item;
+                self.length = arr.length
+            })
 
-            return ret;
 
+
+
+            return self;
         }
     })
 
-    //jsç±»å‹å­˜å‚¨
+    //jsÀàĞÍ´æ´¢
     Fre.each("Boolean Number String Function Array Data RegExp Object Error".split(" "), function(i, name) {
         classType["[object" + name + "]"] = name.toLowerCase();
     })
 
-    //åˆ¤æ–­æ˜¯ä¸æ˜¯ç±»æ•°ç»„
+    //ÅĞ¶ÏÊÇ²»ÊÇÀàÊı×é
     function isArraylike(obj) {
         var length = obj.length,
             type = Fre.type(obj);
@@ -444,22 +411,22 @@
                 var elem = attrExpr.exec(selector),
                     arr;
 
-                //åˆ¤æ–­å‰é¢çš„classé€‰æ‹©è¿˜æ˜¯æ ‡ç­¾é€‰æ‹©  
-                //handle: å‰é¢é€‰æ‹©æ˜¯æ ‡ç­¾æƒ…å†µ $F("div[name=]") 
+                //ÅĞ¶ÏÇ°ÃæµÄclassÑ¡Ôñ»¹ÊÇ±êÇ©Ñ¡Ôñ  
+                //handle: Ç°ÃæÑ¡ÔñÊÇ±êÇ©Çé¿ö $F("div[name=]") 
                 if (elem[1].charAt(1) != ".") {
 
                     arr = context.getElementsByTagName(elem[1]);
 
-                    // handle:å‰é¢é€‰æ‹©æ˜¯classæƒ…å†µ $F(".div[name=]")   
+                    // handle:Ç°ÃæÑ¡ÔñÊÇclassÇé¿ö $F(".div[name=]")   
                 } else {
                     arr = Sizzle.getClass(elem[1].charAt(1), context);
                 }
 
-                // å¦‚æœ  $(".div||div [name=value]") æ²¡å†™å®Œæ•´ åªå†™äº† ç±»ä¼¼è¿™æ ·çš„æƒ…å†µ$(".div||div [")  è¿”å›$F(".div") || $F("div")
+                // Èç¹û  $(".div||div [name=value]") Ã»Ğ´ÍêÕû Ö»Ğ´ÁË ÀàËÆÕâÑùµÄÇé¿ö$(".div||div [")  ·µ»Ø$F(".div") || $F("div")
                 if (!elem[2]) {
                     returnArr = [];
 
-                    //handle: æœ€ç»ˆå¤„ç†$(".div||div [name=value]")
+                    //handle: ×îÖÕ´¦Àí$(".div||div [name=value]")
                 } else {
 
                     var
@@ -484,8 +451,7 @@
 
             return Fre.toArray(returnArr)
         }
-        
-        //fn getClassByClassName(className) ,return a selctor arr
+
         Sizzle.getClass = function(className, context) {
 
             var objArr = context.getElementsByClassName && context.getElementsByClassName(className);
@@ -518,31 +484,11 @@
                 return objArr;
             }
         }
-        
-        /**
-         * Document sorting and removing duplicates
-         * @Author   liyulan
-         * @DateTime 2018-07-12T11:24:38+0800
-         * @param    {[type]}                 results [description]
-         * @return   {[type]}                         [description]
-         */
-        Sizzle.uniqueSort = function(results){
-       
-       var elem,
-       duplicates=[],
-       j = 0,
-       i = 0;
-
-       //
-            
-        }
-
-
 
 
 
         Fre.find = Sizzle;
-        Fre.unique = Sizzle.uniqueSort;
+        window.Sizzle = Sizzle;
 
     })(window)
 
