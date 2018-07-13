@@ -8,16 +8,21 @@
     <!-- <script src="test.js"></script> -->
     <script>
     window.onload = function() {
-        var div=$F(".div").set({
-            width: "100px",
-            height: "200px",
-            name:"20px"
-        });
-        console.log(div)
-        // var s=$F("sp");
-        // var div=$F(".div");
-
+        // var div = $F(".div").set({
+        //     width: "100px",
+        //     height: "200px",
+        //     name: "20px"
+        // });
+        // var div = $F(".div").attr({"name":"box","h":"h"});
+        // var div=$F(".div").filter("p")
+        var div=$F(".div").width()
         
+        var i=-1;
+
+
+
+
+
 
     }
     </script>
@@ -31,10 +36,17 @@
 </head>
 
 <body>
-    <div id="div" class="div div6"><p></p></div>
-    <span class="div" name="box"></span>
-    <div id="div1" class="div" name="ha"><p></p></div>
-    <div id="box">哈哈</div>
+    <div id="div" class="div div6" name="box" style="height:50px;width:20px;">
+        <p></p>
+    </div>
+    <div class="div" name="box">655555555555555</div>
+    <div id="div1" class="div" name="ha">
+        <p></p>
+    </div>
+    <div class="div" name="box">655555555555555</div>
+    <div class="div" name="box">655555555555555</div>
+    <div id="box" class="div" style="width:10px;">哈哈</div>
+    <div style="width:10px;height:100px;background:green"></div>
 </body>
 
 </html>
