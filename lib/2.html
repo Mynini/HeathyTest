@@ -1,67 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> 
-	<meta charset="UTF-8">
-	<title>Document</title>
+<head>
+    <meta charset="UTF-8">
+    <title>封装getElementsByClassName</title>
 </head>
 <body>
+<div class="trsd demo">1111111111</div>
+<div>2222222222</div>
+<div class="demo">3333333333333</div>
+<div>44444444</div>
+<div>55555555555</div>
+<div>6666666666666</div>
+<div class="demo2 tssr   demo">777777777777777</div>
+<div>88888888888</div>
+<div class="demo">999999999999999</div>
+<div>0000000000000000</div>
+<script>
+    function getClass(classname) {
+        if (document.getElementsByClassName) {
+            return document.getElementsByClassName(classname);
+        }
 
-	<input id="a" type="text" value="请输入搜索词" />
-    <div style="width:10px;height:10px;background:red"></div>
-	<button id='btn'>按钮</button>
-<script type="text/javascript">
-    
-    var a=[1,2];
-    var b=[2,3];
-
-    var a=10;
-    var b=document.getElementById("a");
-
-    var c=10;
-    // var b=c++;
-    c++;
-    console.log(c)
-
-
-</script>
-	
-</body>
-</html>
-
- <!-- // Take an array of elements and push it onto the stack
-        pushStack: function(elems){
-
-            // Build a new jQuery matched element set
-            var ret=Fre.merge( this.constructer(),elems)
-
-            // Add the old object onto the stack (as a reference)
-            ret.context = context;
-            ret.preObject = this;
-
-            return ret;
-
-        } -->
-
-<!-- 
- merge: function( first,second) {
-
-            var l = second.length,
-            i = first.length,
-            j = 0,
-
-            if( typeof l === "number"){
-                for(; j < l; j++){
-                    first[ i++ ] =second[ j++ ];
-                }
-            }else{
-                while ( second[j] !== undefined){
-                    first[i++] = second[ j++ ];
+        var $elements = document.getElementsByTagName('*');
+        var arr = [];
+        for (var i = 0, j = $elements.length; i < j; i++) {
+            //如果有多个类 需要用空格隔开
+            var dom = $elements[i].className.split(" ");
+            for (var k = 0, l = dom.length; k < l; k++) {
+                if (dom[k] == classname) {
+                    arr.push($elements[i]);
                 }
             }
+        }
 
-            first.length = i;
+        return arr;
+    }
 
-            return first;
+    var test = getClass("demo");
+    console.log(test);
+    for(var i=0;i<test.length;i++){
+        console.log(test[i])
+        test[i].style.background="#666";
+    }
 
-        },
- -->
+</script>
+</body>
+</html>
