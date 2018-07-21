@@ -4,22 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <style>
-    #div {
-        width: 500px;
-        height: 100px;
-        background: red;
-    }
-    </style>
+    <style href="../plugin/slideAround/slideAround.css"></style>
     <script src="./test/Fre.js"></script>
+
 </head>
 
 <body>
-    <div id="div" class="div div6 box" name="box" style="position:absolute;left:400px;top:90px;">
-        <p style="display:block;width:100px;height:100px;background:blue;left:0;right:0;margin:10px;" id="d"></p>
-        <p style="display:block;width:100px;height:100px;background:blue;left:0;right:0;margin:10px;"></p>
-        <p style="display:block;width:100px;height:100px;background:blue;left:0;right:0;margin:10px;"></p>
+    <div class="slideAround">
+        <div class="wraper">
+            <div class="sldie-page"><img src="https://goss.veer.com/creative/vcg/veer/800water/veer-141111718.jpg" alt=""></div>
+            <div class="slide-page"><img src="https://goss.veer.com/creative/vcg/veer/800water/veer-133245707.jpg" alt=""></div>
+            <div class="slide-page"><img src="https://goss.veer.com/creative/vcg/veer/800water/veer-301159297.jpg" alt=""></div>
+            <div class="slide-page"><img src="https://goss.veer.com/creative/vcg/veer/800water/veer-132710107.jpg" alt=""></div>
+        </div>
     </div>
+    <ul class="slide-btn-wrap">
+        <li class="slide-btn"></li>
+        <li class="slide-btn"></li>
+        <li class="slide-btn"></li>
+        <li class="slide-btn"></li>
+    </ul>
     <script>
     window.onload = function() {
 
@@ -35,6 +39,7 @@
 
     }
     </script>
-</body>
 
+    
+</body>
 </html>

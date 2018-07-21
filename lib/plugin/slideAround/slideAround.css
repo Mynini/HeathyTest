@@ -1,0 +1,15 @@
+
+.slideAround {
+}
+.wraper {
+	width:100%;
+	overflow:hidden;
+	position:relative;
+}
+.slide-page{
+	position:absolute;
+	left:0;
+	top:0;
+	width:100%;
+
+}
