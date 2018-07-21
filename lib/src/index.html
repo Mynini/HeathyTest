@@ -5,25 +5,31 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <style>
-    #div { width: 500px; height: 100px; background: red; }
+    #div {
+        width: 500px;
+        height: 100px;
+        background: red;
+    }
     </style>
-    <!-- <script src="./test/Fre.js"></script> -->
+    <script src="./test/Fre.js"></script>
 </head>
 
 <body>
     <div id="div" class="div div6 box" name="box" style="position:absolute;left:400px;top:90px;">
-        <p></p>
+        <p style="display:block;width:100px;height:100px;background:blue;left:0;right:0;margin:10px;" id="d"></p>
+        <p style="display:block;width:100px;height:100px;background:blue;left:0;right:0;margin:10px;"></p>
+        <p style="display:block;width:100px;height:100px;background:blue;left:0;right:0;margin:10px;"></p>
     </div>
-
-
     <script>
     window.onload = function() {
 
-        // var div = $F(".box").removeClass("boxs");
-        // var c=$F(".div").on("click",function(){
-        //     console.log(1);
-        // },true)
-        var c=$F(".div");
+        function fn1(){
+            console.log(1)
+        }
+        var c = $F(".div").find("#d");
+
+        // var b=$F(".div").remove("mousedown","p",fn1)
+   
         console.log(c);
 
 
