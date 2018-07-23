@@ -1,5 +1,5 @@
-
-.slideAround {
+body{margin:0;}
+.slide-Around {
 }
 .wraper {
 	width:100%;
@@ -7,9 +7,29 @@
 	position:relative;
 }
 .slide-page{
-	position:absolute;
+	/*position:absolute;
 	left:0;
-	top:0;
-	width:100%;
+	top:0;*/
 
+}
+
+.slide-btn-wrap{
+	padding:0;
+	margin:0;
+	text-align:center;
+}
+.slide-btn-wrap .slide-btn{
+	list-style:none;
+	width:12px;
+	height:12px;
+	background:green;
+	border-radius:50%;
+	display:inline-block;
+	margin:5px;
+	cursor:pointer;
+
+}
+
+.slide-btn-wrap .slide-btn-active{
+	background:red;
 }

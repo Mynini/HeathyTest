@@ -6,11 +6,12 @@
     <title>Document</title>
     <style href="../plugin/slideAround/slideAround.css"></style>
     <script src="./test/Fre.js"></script>
+    <script src="./test/slideAround.js"></script>
 
 </head>
 
 <body>
-    <div class="slideAround">
+    <div class="slide-Around bbx">
         <div class="wraper">
             <div class="sldie-page"><img src="https://goss.veer.com/creative/vcg/veer/800water/veer-141111718.jpg" alt=""></div>
             <div class="slide-page"><img src="https://goss.veer.com/creative/vcg/veer/800water/veer-133245707.jpg" alt=""></div>
@@ -19,7 +20,7 @@
         </div>
     </div>
     <ul class="slide-btn-wrap">
-        <li class="slide-btn"></li>
+        <li class="slide-btn slide-btn-active"></li>
         <li class="slide-btn"></li>
         <li class="slide-btn"></li>
         <li class="slide-btn"></li>
@@ -27,14 +28,11 @@
     <script>
     window.onload = function() {
 
-        function fn1(){
-            console.log(1)
-        }
-        var c = $F(".div").find("#d");
-
-        // var b=$F(".div").remove("mousedown","p",fn1)
-   
-        console.log(c);
+        var s=$F(".sldie-page");
+        // var s=new slide("")
+        console.log(s)
+        var b=document.getElementsByClassName("bbx")
+        console.log(b)
 
 
     }
