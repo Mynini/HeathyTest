@@ -7,37 +7,69 @@
     <style href="../plugin/slideAround/slideAround.css"></style>
     <script src="./test/Fre.js"></script>
     <script src="./test/slideAround.js"></script>
-
 </head>
 
 <body>
-    <div class="slide-Around bbx">
-        <div class="wraper">
-            <div class="sldie-page"><img src="https://goss.veer.com/creative/vcg/veer/800water/veer-141111718.jpg" alt=""></div>
-            <div class="slide-page"><img src="https://goss.veer.com/creative/vcg/veer/800water/veer-133245707.jpg" alt=""></div>
-            <div class="slide-page"><img src="https://goss.veer.com/creative/vcg/veer/800water/veer-301159297.jpg" alt=""></div>
-            <div class="slide-page"><img src="https://goss.veer.com/creative/vcg/veer/800water/veer-132710107.jpg" alt=""></div>
+    <div class="slide-around">
+        <div class="slide-wrap" style="width:10px;">
+            <div class="slide-page"><img src="https://goss.veer.com/creative/vcg/veer/800water/veer-141111718.jpg" alt="" style="width:100%"></div>
+            <div class="slide-page"><img src="https://goss.veer.com/creative/vcg/veer/800water/veer-133245707.jpg" alt="" style="width:100%"></div>
+            <div class="slide-page"><img src="https://goss.veer.com/creative/vcg/veer/800water/veer-301159297.jpg" alt="" style="width:100%"></div>
+            <div class="slide-page"><img src="https://goss.veer.com/creative/vcg/veer/800water/veer-132710107.jpg" alt="" style="width:100%"></div>
+            <div class="slide-page"><img src="https://goss.veer.com/creative/vcg/veer/800water/veer-141111718.jpg" alt="" style="width:100%"></div>
+            <div class="slide-page"><img src="https://goss.veer.com/creative/vcg/veer/800water/veer-141111718.jpg" alt="" style="width:100%"></div>
+        </div>
+        <ul class="slide-btnrect-wrap">
+            <li class="btn-rect-inwrap"><i class="slide-btn-rect"></i><i class="btn-rect btn-rect-active"></i></li>
+            <li class="btn-rect-inwrap"><i class="slide-btn-rect"></i><i class="btn-rect"></i></li>
+            <li class="btn-rect-inwrap"><i class="slide-btn-rect"></i><i class="btn-rect"></i></li>
+            <li class="btn-rect-inwrap"><i class="slide-btn-rect"></i><i class="btn-rect"></i></li>
+            <li class="btn-rect-inwrap"><i class="slide-btn-rect"></i><i class="btn-rect"></i></li>
+        </ul>
+       <!--  <ul class="slide-btn-wrap">
+            <li class="slide-btn slide-btn-active"></li>
+            <li class="slide-btn"></li>
+            <li class="slide-btn"></li>
+            <li class="slide-btn"></li>
+        </ul> -->
+        <div class="slide-arrowbtn-wrap">
+            <div class="slide-arrowbtn slide-arrowbtn-lt arrowbtn-active">
+                <div class="slide-arrow-wrap">
+                    <i class="slide-arrow slide-arrow-Llt"></i>
+                    <i class="slide-arrow slide-arrow-Lrt"></i>
+                </div>
+            </div>
+            <div class="slide-arrowbtn slide-arrowbtn-rt">
+                <div class="slide-arrow-wrap">
+                    <i class="slide-arrow slide-arrow-Rlt"></i>
+                    <i class="slide-arrow slide-arrow-Rrt"></i>
+                </div>
+            </div>
         </div>
     </div>
-    <ul class="slide-btn-wrap">
-        <li class="slide-btn slide-btn-active"></li>
-        <li class="slide-btn"></li>
-        <li class="slide-btn"></li>
-        <li class="slide-btn"></li>
-    </ul>
     <script>
     window.onload = function() {
 
-        var s=$F(".sldie-page");
-        // var s=new slide("")
+
+
+        var s = new slideAround(".slide-around", {
+            autoWidth: true,
+            containerWith: 1300,
+            num: 4,
+            slideWidth: 400
+
+        })
         console.log(s)
-        var b=document.getElementsByClassName("bbx")
-        console.log(b)
+
+        // var att1=["a",10];
+        // var att2=["b",50,"a"];
+        // var c=att1.concat(att2);
+        // console.log(c)
+
 
 
     }
     </script>
-
-    
 </body>
+
 </html>
