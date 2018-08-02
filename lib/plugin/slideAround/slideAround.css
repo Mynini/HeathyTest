@@ -29,6 +29,8 @@ li{
     line-height:0;
     overflow: hidden;
     z-index:1;
+    left:0;
+    right:0;
 }
 
 
@@ -189,9 +191,58 @@ li{
 
 .btn-rect {
     width: 0;
+    background:#fff;
 }
 
 .btn-rect-active .btn-rect{
     width: 50px;
     background: #fff;
 }
+.btn-rect-auto-active .btn-rect{
+    animation:4s rectWith forwards;
+}
+
+
+
+.slide-page{
+    transition:all 1s;
+}
+/*-----fadeIn模式------*/
+
+/*.prevPage.slide-page{
+    
+    animation:3s fadeOut forwards;
+}*/
+.currentPageFade.slide-page{
+    animation:2s fadeIn forwards;
+}
+
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes rectWith {
+    from{
+        width:0;
+        opacity: 1;
+    }
+    to{
+        width:50px;
+        opacity: 1;
+    }
+}
+
+
