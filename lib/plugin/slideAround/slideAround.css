@@ -31,6 +31,8 @@ li{
     z-index:1;
     left:0;
     right:0;
+    background-repeat:no-repeat;
+    background-size:100% 100%;
 }
 
 
@@ -195,11 +197,11 @@ li{
 }
 
 .btn-rect-active .btn-rect{
-    width: 50px;
+    width: 100%;
     background: #fff;
 }
 .btn-rect-auto-active .btn-rect{
-    animation:4s rectWith forwards;
+    animation:5.5s rectWith forwards ease-in-out;
 }
 
 
@@ -209,13 +211,13 @@ li{
 }
 /*-----fadeIn模式------*/
 
-/*.prevPage.slide-page{
+.prevPage.slide-page{
     
-    animation:3s fadeOut forwards;
-}*/
-.currentPageFade.slide-page{
-    animation:2s fadeIn forwards;
+    animation:5s fadeOut forwards;
 }
+/*.currentPageFade.slide-page{
+    animation:2s fadeIn forwards;
+}*/
 
 @keyframes fadeIn {
     from{
@@ -227,12 +229,16 @@ li{
 }
 @keyframes fadeOut {
     from{
-        opacity: 0;
+        opacity: 1;
+        transform: scale(1);
     }
     to{
-        opacity: 1;
+        transform: scale(0.5);
+        opacity: 0;
     }
 }
+
+
 
 @keyframes rectWith {
     from{
@@ -240,7 +246,7 @@ li{
         opacity: 1;
     }
     to{
-        width:50px;
+        width:100%;
         opacity: 1;
     }
 }
