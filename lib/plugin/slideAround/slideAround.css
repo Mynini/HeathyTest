@@ -35,6 +35,14 @@ li{
     background-size:100% 100%;
 }
 
+.autoMode .slide-page{
+    opacity: 0;
+}
+.autoMode .slide-page:nth-child(1){
+    opacity: 1;
+    z-index: 1;
+}
+
 
 
 
@@ -213,13 +221,13 @@ li{
 
 .prevPage.slide-page{
     
-    animation:5s fadeOut forwards;
+    animation:2s fadeOut 0.5s forwards ease-in-out;
 }
 /*.currentPageFade.slide-page{
     animation:2s fadeIn forwards;
 }*/
 
-@keyframes fadeIn {
+/*@keyframes fadeIn {
     from{
         opacity: 0;
     }
@@ -228,16 +236,18 @@ li{
     }
 }
 @keyframes fadeOut {
-    from{
+    0%{
         opacity: 1;
         transform: scale(1);
     }
-    to{
-        transform: scale(0.2);
+
+    100%{
+        transform: scale(0.5);
         opacity: 0;
+        
     }
 }
-
+*/
 
 
 @keyframes rectWith {
