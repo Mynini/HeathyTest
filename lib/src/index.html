@@ -40,6 +40,23 @@
         background: red;
         display: none;
     }
+
+    .slide-page a{
+        display:block;
+        width:100px;
+        height:100px;
+        border:1px solid #000;
+        position: absolute;
+        left:0;
+    }
+    .slide-page:nth-child(1) a{top:100px;}
+    .slide-page:nth-child(2) a{top:200px;}
+    .slide-page:nth-child(3) a{top:300px;}
+    .slide-page:nth-child(4) a{top:400px;}
+    .slide-page:nth-child(5) a{top:500px;}
+
+
+
     </style>
 </head>
 
@@ -53,11 +70,11 @@
     </div> -->
     <div class="slide-around">
         <div class="slide-wrap" style="width:10px;">
-            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-141111718.jpg)"></div>
-            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-133245707.jpg)"></div>
-            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-301159297.jpg)"></div>
-            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-132710107.jpg)"></div>
-            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-133245707.jpg)"></div>
+            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-141111718.jpg)"><a href="">page1</a></div>
+            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-133245707.jpg)"><a href="">page2</a></div>
+            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-301159297.jpg)"><a href="">page3</a></div>
+            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-132710107.jpg)"><a href="">page4</a></div>
+            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-133245707.jpg)"><a href="">page5</a></div>
         </div>
         <ul class="slide-btnrect-wrap">
             <li class="btn-rect-inwrap btn-rect-active"><i class="slide-btn-rect"></i><i class="btn-rect"></i></li>
