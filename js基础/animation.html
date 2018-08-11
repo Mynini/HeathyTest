@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    /*3d变换必须在3d上下文环境里面*/
+    .xw-b1 {
+        transform-style: preserve-3d;
+        perspective: 9000px;
+        perspective-origin: 10px 9000px;    
+    }
+
+    .xw-b1 .img {
+        animation: xw-b1 2s infinite;
+        transform-origin: 900px 200px 200px;
+    }
+
+    @keyframes xw-b1 {
+        0% {
+            transform: rotateZ(0);
+        }
+        100% {
+            transform: rotateZ(360deg);
+        }
+    }
+    </style>
+</head>
+<div class="xw-b1">
+    <div class="img"><img src="https://goss.veer.com/creative/vcg/veer/800water/veer-141111718.jpg" alt=""></div>
+</div>
+
+<body>
+</body>
+
+</html>
