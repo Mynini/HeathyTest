@@ -91,6 +91,11 @@
             <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-301159297.jpg)"><a href="">page3</a></div>
             <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-132710107.jpg)"><a href="">page4</a></div>
             <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-133245707.jpg)"><a href="">page5</a></div>
+            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-132710107.jpg)"><a href="">page4</a></div>
+            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-133245707.jpg)"><a href="">page5</a></div>
+            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-132710107.jpg)"><a href="">page4</a></div>
+            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-133245707.jpg)"><a href="">page5</a></div>
+
         </div>
         <ul class="slide-btnrect-wrap">
             <li class="btn-rect-inwrap btn-rect-active"><i class="slide-btn-rect"></i><i class="btn-rect"></i></li>
@@ -98,7 +103,6 @@
             <li class="btn-rect-inwrap"><i class="slide-btn-rect"></i><i class="btn-rect"></i></li>
             <li class="btn-rect-inwrap"><i class="slide-btn-rect"></i><i class="btn-rect"></i></li>
             <li class="btn-rect-inwrap"><i class="slide-btn-rect"></i><i class="btn-rect"></i></li>
-
         </ul>
         <!-- <ul class="slide-btn-wrap">
             <li class="slide-btn slide-btn-active"></li>
@@ -125,7 +129,7 @@
         <!-- <div class="box" name="box" style="width:10px;height:10px;background:green">50000000000000000000000000</div>
     <div class="box" name="box" style="width:10px;height:10px;background:green">50000000000000000000000000</div> -->
         <!-- 插件 backToCurrent -->
-        <ul class="nav">
+        <!-- <ul class="nav">
             <li class="Current li">
                 <a href="#">首页</a>
                 <dl class="Nav-drop">
@@ -163,24 +167,26 @@
                 </dl>
             </li>
             <li><i></i><a href="">EN</a></li>
-        </ul>
+        </ul> -->
         <script>
         window.onload = function() {
 
             var s = new slideAround(".slide-around", {
                 autoWidth: true,
                 containerWith: 1300,
-                num: 1,
+                num: 3,
                 slideWidth: 400,
-                method: "fadeIn"
+                slideHeight:200,
+                method: "slideMove",
+                cycle:true
 
             })
 
-            var nav = new backToCurrent(".nav", {
-                domAdd: ".li",
-                hovDom: "a",
-                time: 1000
-            });
+            // var nav = new backToCurrent(".nav", {
+            //     domAdd: ".li",
+            //     hovDom: "a",
+            //     time: 1000
+            // });
 
 
 
