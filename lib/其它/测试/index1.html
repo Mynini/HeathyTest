@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style href="../plugin/slideAround/slideAround.css"></style>
+    <script src="./test/Fre.js"></script>
+    <script src="./test/slideAround.js"></script>
+    <script src="./test/backToCurrent.js"></script>
+    <style>
+    .box {
+        width: 100px;
+        height: 100px;
+        background: red;
+    }
+
+    .nav {
+        overflow: hidden;
+    }
+
+    .nav li {
+        float: left;
+        margin: 0 20px;
+    }
+
+    .nav a {
+        padding: 30px;
+    }
+
+    .nav li.Active a {
+        color: red;
+    }
+
+    .nav li.Active dl {
+        display: block;
+    }
+
+    dl {
+        background: red;
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <!--     <div class="obox" style="width:300px;height:300px;background:red;border:10px solid #000;padding:10px;margin:10px;">
+        <div class="obox1" style="width:100px;height:100px;background:blue;position:relative;margin:10px;border:10px solid #000;padding:10px;">
+            <div class="obox2" style="width:50px;height:50px;background:yellow;margin:10px;">
+                <div class="obox3" style="width:10px;height:10px;background:#fff;"></div>
+            </div>
+        </div>
+    </div> -->
+    <div class="slide-around">
+        <div class="slide-wrap" style="width:10px;">
+            <div class="slide-page"><img src="https://goss.veer.com/creative/vcg/veer/800water/veer-141111718.jpg" alt="" style="width:100%;"></div>
+            <div class="slide-page"><img src="https://goss.veer.com/creative/vcg/veer/800water/veer-133245707.jpg" alt="" style="width:100%"></div>
+            <div class="slide-page"><img src="https://goss.veer.com/creative/vcg/veer/800water/veer-301159297.jpg" alt="" style="width:100%"></div>
+            <div class="slide-page"><img src="https://goss.veer.com/creative/vcg/veer/800water/veer-132710107.jpg" alt="" style="width:100%"></div>
+            <div class="slide-page"><img src="https://goss.veer.com/creative/vcg/veer/800water/veer-133245707.jpg" alt="" style="width:100%"></div>
+        </div>
+        <ul class="slide-btnrect-wrap">
+            <li class="btn-rect-inwrap btn-rect-active"><i class="slide-btn-rect"></i><i class="btn-rect"></i></li>
+            <li class="btn-rect-inwrap"><i class="slide-btn-rect"></i><i class="btn-rect"></i></li>
+            <li class="btn-rect-inwrap"><i class="slide-btn-rect"></i><i class="btn-rect"></i></li>
+            <li class="btn-rect-inwrap"><i class="slide-btn-rect"></i><i class="btn-rect"></i></li>
+            <li class="btn-rect-inwrap"><i class="slide-btn-rect"></i><i class="btn-rect"></i></li>
+        </ul>
+         <!-- <ul class="slide-btn-wrap">
+            <li class="slide-btn slide-btn-active"></li>
+            <li class="slide-btn"></li>
+            <li class="slide-btn"></li>
+            <li class="slide-btn"></li>
+            <li class="slide-btn"></li>
+        </ul> -->
+        <div class="slide-arrowbtn-wrap">
+            <div class="slide-arrowbtn slide-arrowbtn-lt">
+                <div class="slide-arrow-wrap">
+                    <i class="slide-arrow slide-arrow-Llt"></i>
+                    <i class="slide-arrow slide-arrow-Lrt"></i>
+                </div>
+            </div>
+            <div class="slide-arrowbtn slide-arrowbtn-rt">
+                <div class="slide-arrow-wrap">
+                    <i class="slide-arrow slide-arrow-Rlt"></i>
+                    <i class="slide-arrow slide-arrow-Rrt"></i>
+                </div>
+            </div>
+        </div>
+        <!-- </div> -->
+        <!-- <div class="box" name="box" style="width:10px;height:10px;background:green">50000000000000000000000000</div>
+    <div class="box" name="box" style="width:10px;height:10px;background:green">50000000000000000000000000</div> -->
+        <!-- 插件 backToCurrent -->
+        <!-- <ul class="nav">
+        <li class="Current li">
+            <a href="#">首页</a>
+            <dl class="Nav-drop">
+                <dt>标题</dt>
+                <dd>这是标题</dd>
+                <dd>这是标题</dd>
+                <dd>这是标题</dd>
+            </dl>
+        </li>
+        <li class="li Active">
+            <a href="#">关于我们</a>
+            <dl class="Nav-drop">
+                <dt>标题</dt>
+                <dd>这是标题</dd>
+                <dd>这是标题</dd>
+                <dd>这是标题</dd>
+            </dl>
+        </li>
+        <li class="li">
+            <a href="#">关于我们</a>
+            <dl class="Nav-drop">
+                <dt>标题</dt>
+                <dd>这是标题</dd>
+                <dd>这是标题</dd>
+                <dd>这是标题</dd>
+            </dl>
+        </li>
+        <li class="li">
+            <a href="#">关于我们</a>
+            <dl class="Nav-drop">
+                <dt>标题</dt>
+                <dd>这是标题</dd>
+                <dd>这是标题</dd>
+                <dd>这是标题</dd>
+            </dl>
+        </li>
+        <li><i></i><a href="">EN</a></li>
+    </ul> -->
+        <script>
+        window.onload = function() {
+
+            var s = new slideAround(".slide-around", {
+                autoWidth: true,
+                containerWith: 1300,
+                num: 1,
+                slideWidth: 400,
+                method:"fadeIn"
+
+            })
+            console.log(s)
+
+
+
+
+
+
+        }
+        </script>
+</body>
+
+</html>

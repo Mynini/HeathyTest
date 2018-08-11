@@ -6,25 +6,32 @@
 
     <script>
         window.onload=function(){
-            function C(){
-                this.c=12;
+          function a(){
+            console.log(1)
+          }
 
-            }
-            C.prototype.h=function(){
-                this.c=20;
-            }
+          var a=typeof a;
+          var s={"box":".box-box"}
 
-            var a=new C()
-            a.h()
-            console.log(a.c)
-            var b=new C();
-            console.log(b.c)
-            a.c=60;
-            console.log(b.c)
+          var b=document.querySelector(s.box);
+          console.log(b)
+
+
+
+
         }
     </script>
 </head>
 <body>
+
+  <ul class="box-box" id="box">
+    <li class="li">55</li>
+    <li class="li">55</li>
+    <li class="li">55</li>
+    <li class="li">55</li>
+    <li class="li">55</li>
+    <li class="li">55</li>
+  </ul>
     
 </body>
 </html>
