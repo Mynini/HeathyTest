@@ -73,6 +73,11 @@
     .slide-page:nth-child(5) a {
         top: 500px;
     }
+    /*.wrap{width:1200px;margin:0 auto;background:red;height:100%;}*/
+
+    @media screen and (max-width: 1200px) {
+        /*.wrap {width:auto; }*/
+    }
     </style>
 </head>
 
@@ -86,23 +91,38 @@
     </div> -->
     <div class="slide-around">
         <div class="slide-wrap" style="width:10px;">
-            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-141111718.jpg)"><a href="">page1</a></div>
-            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-133245707.jpg)"><a href="">page2</a></div>
-            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-301159297.jpg)"><a href="">page3</a></div>
-            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-132710107.jpg)"><a href="">page4</a></div>
-            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-133245707.jpg)"><a href="">page5</a></div>
-            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-132710107.jpg)"><a href="">page4</a></div>
-            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-133245707.jpg)"><a href="">page5</a></div>
-            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-132710107.jpg)"><a href="">page4</a></div>
-            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-133245707.jpg)"><a href="">page5</a></div>
-
+            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-141111718.jpg)">
+                <div class="wrap"></div><a href="">page1</a></div>
+            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-133245707.jpg)">
+                <div class="wrap"></div><a href="">page2</a></div>
+            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-301159297.jpg)">
+                <div class="wrap"></div><a href="">page3</a></div>
+            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-132710107.jpg)">
+                <div class="wrap"></div><a href="">page4</a></div>
+            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-133245707.jpg)">
+                <div class="wrap"></div><a href="">page5</a></div>
+            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-132710107.jpg)">
+                <div class="wrap"></div><a href="">page4</a></div>
+            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-133245707.jpg)">
+                <div class="wrap"></div><a href="">page5</a></div>
+            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-132710107.jpg)">
+                <div class="wrap"></div><a href="">page4</a></div>
+            <div class="slide-page" style="background-image:url(https://goss.veer.com/creative/vcg/veer/800water/veer-133245707.jpg)">
+                <div class="wrap"></div><a href="">page5</a></div>
         </div>
+  <!--       <div class="slide-btnrect-wrap">
+            <a href="#" class="btn-rect-inwrap btn-rect-active"><i class="slide-btn-rect"></i><i class="btn-rect"></i></a>
+            <a href="#" class="btn-rect-inwrap"><i class="slide-btn-rect"></i><i class="btn-rect"></i></a>
+            <a href="#" class="btn-rect-inwrap"><i class="slide-btn-rect"></i><i class="btn-rect"></i></a>
+            <a href="#" class="btn-rect-inwrap"><i class="slide-btn-rect"></i><i class="btn-rect"></i></a>
+            <a href="#" class="btn-rect-inwrap"><i class="slide-btn-rect"></i><i class="btn-rect"></i></a>
+        </div> -->
         <ul class="slide-btnrect-wrap">
-            <li class="btn-rect-inwrap btn-rect-active"><i class="slide-btn-rect"></i><i class="btn-rect"></i></li>
-            <li class="btn-rect-inwrap"><i class="slide-btn-rect"></i><i class="btn-rect"></i></li>
-            <li class="btn-rect-inwrap"><i class="slide-btn-rect"></i><i class="btn-rect"></i></li>
-            <li class="btn-rect-inwrap"><i class="slide-btn-rect"></i><i class="btn-rect"></i></li>
-            <li class="btn-rect-inwrap"><i class="slide-btn-rect"></i><i class="btn-rect"></i></li>
+            <li  class="btn-rect-inwrap btn-rect-active"><i class="slide-btn-rect"></i><i class="btn-rect"></i></li>
+            <li  class="btn-rect-inwrap"><i class="slide-btn-rect"></i><i class="btn-rect"></i></li>
+            <li  class="btn-rect-inwrap"><i class="slide-btn-rect"></i><i class="btn-rect"></i></li>
+            <li  class="btn-rect-inwrap"><i class="slide-btn-rect"></i><i class="btn-rect"></i></li>
+            <li  class="btn-rect-inwrap"><i class="slide-btn-rect"></i><i class="btn-rect"></i></li>
         </ul>
         <!-- <ul class="slide-btn-wrap">
             <li class="slide-btn slide-btn-active"></li>
@@ -173,12 +193,11 @@
 
             var s = new slideAround(".slide-around", {
                 autoWidth: true,
-                containerWith: 1300,
-                num: 3,
+                num: 1,
                 slideWidth: 400,
-                slideHeight:200,
-                method: "slideMove",
-                cycle:true
+                slideHeight: 200,
+                method: "fadeIn",
+                cycle: true
 
             })
 

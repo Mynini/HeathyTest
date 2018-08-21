@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数据劫持</title>
+</head>
+<body>
+
+	<div class="app">
+		<button id="btn">改变数据</button>
+		<h2 id="title">这是标题</h2>
+	</div>
+
+	<script>
+		var data={
+			title:"新闻",
+			mv:2
+		}
+
+		Observer(data);
+
+		function Observer(obj){
+			Object.keys(obj).forEach((item)=>{
+				defineReactive(obj,item,obj[item]);
+			})
+		}
+
+		function defineReactive(obj,key,value){
+			Object.defineProperty(obj,key,{
+				get(){
+					return value;
+				},
+				set(newValue){
+					value = newValue;
+					title.innerHTML=newValue;
+				}
+
+			})
+		}
+
+		var btn=document.querySelector("button");
+		var title=document.querySelector("h2");
+
+		btn.onclick=function(){
+			data.title="数据变了";;
+		}
+	</script>
+	
+</body>
+</html>

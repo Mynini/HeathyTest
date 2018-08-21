@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li>{{msg}}</li>
+            <li>{{list.key}}</li>
+            <li>{{list.box}}</li>
+        </ul>
+        <ul>
+            <li v-for="item in arr">{{item}}</li>
+        </ul>
+    </div>
+    <!-- 提供了观察数组的变异方法，使用这些方法将会触发视图更新 push()、pop()、shift()、unshift()、splice()、sort()、reverse() 会改变原数组 -->
+    <script>
+    let vm = new Vue({
+        el: ".box",
+        data: {
+            list: {
+                abc: 889
+            },
+            value: 123,
+            arr: [1, 2, 3]
+        }
+
+    })
+
+    console.log(vm.list)
+
+    // vm.$set(vm.list,"key","gg52");
+    Vue.set(vm.list, "key", "gg52");
+    vm.list = Object.assign({}, vm.list, { box: "245" })
+
+    //不可响应
+    vm.arr[0] = "测试"; //改变不了数组长度
+    vm.arr.length=1;  //改变不了数组长度
+    // 可响应
+    vm.arr.splice(0, 1, "hwh");
+    vm.arr[0] = "策士56512" //当在观察组下用普通方法时会有作用
+    vm.arr.length=1;  //当在观察组下用普通方法时会有作用
+    </script>
+</body>
+
+</html>
