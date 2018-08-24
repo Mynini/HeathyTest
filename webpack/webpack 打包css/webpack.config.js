@@ -1,6 +1,8 @@
 var path = require("path");
 // 1、引入ExtractTextWebpackPlugin
 var ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: {
         index: "./1.js"
@@ -9,20 +11,40 @@ module.exports = {
         path: path.resolve(__dirname, "dist"),
         publicPath: "dist/",
         filename: '[name].bundle.js',
-        chunkFilename: "[name].bundle.js"// 指定打包文件的块名称
+        chunkFilename: "[name]js" // 指定打包文件的块名称
     },
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.css$/,
                 use: ExtractTextWebpackPlugin.extract({ // 2、使用ExtractTextWebpackPlugin
-                    fallback: {// 不提取的时候，使用什么样的配置来处理css
+                    fallback: { // 不提取的时候，使用什么样的配置来处理css
                         loader: 'style-loader',
                         options: {
                             singleton: true
                         }
-
+                    },
+                    use: [ //提取的时候，继续用下面的方式处理
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                minimize: true
+                            }
+                        }
+                    ]
+                })
+            },
+            {　　　　　　
+                test: /\.(png|jpg)$/,
+                //loader: 'url-loader?limit=8192';
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        // limit: 10000,
+                        name: 'img/[name].[ext]'
                     }
+                }]
+                // 　　　　　　
+                　　　　
             }
         ]
     },
