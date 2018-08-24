@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/vue.js"></script>
+</head>
+<body>
+
+	<div class="box">
+		<input type="checkbox" v-model="checked">
+		<p v-if="checked">if</p>
+		<p v-show="checked">show</p>
+		
+	</div>
+
+	<script>
+		
+		var vm = new Vue({
+			el:".box",
+			data:{
+				checked:true
+			}
+		})
+	</script>
+	
+</body>
+</html>

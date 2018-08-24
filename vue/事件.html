@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+    <style>
+    [v-cload] {
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="app" v-cloak>
+        <button v-on:click="fn">测试事件</button>
+        <a @click.prevent="prevent" href="http://www.baidu.com">跳到百度</a>
+        <a @click.prevent href="http://www.boting.co/book/27247-720025.htm">跳到博听网</a>
+        <div @click.capture="demo1">
+            demo1
+            <div @click.self="demo2">   <!-- .self 只有当前div点击才触犯demo2 -->
+                demo2
+                <div @click="demo3">demo3</div>
+            </div>
+        </div>
+        <input type="text" @keyups.enter="uphandle">
+        <input type="text" @keyups.13="uphandle">
+        <input type="text" @keyups.65="uphandle">
+    </div>
+    <script>
+    /*事件修饰符
+    方法只有在纯粹的数据逻辑， 而不是去处理dom事件细节
+    @事件名.修饰符.修饰符 = "";
+    语法： v - on: 事件名.修饰符 = "事件处理函数"
+        .stop、.prevent、.capture、.self、.once
+    按键修饰符.enter、.tab、.delete、.esc、.space、.up、.down、.left、.right */
+
+    var msg="hello"
+    var vm = new Vue({
+    	el:".app",
+    	data:{
+    		msg
+    	},
+    	methods:{
+    		fn(){
+    			alert(1);
+    		},
+    		prevent(ev){
+    			//ev.preventDefault();
+    		},
+    		demo1(){
+    			console.log("demo1");
+    		},
+    		demo2(){
+    			console.log("demo2")
+    		},
+    		demo3(){
+    			console.log("demo3")
+    		},
+    		uphandle(ev){
+    			console.log(ev.keyCode);
+    		}
+    	}
+    })
+    </script>
+</body>
+
+</html>

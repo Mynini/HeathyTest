@@ -37,9 +37,6 @@ li {
     background-size: 100% 100%;
 }
 
-.autoMode .slide-page {
-    opacity: 0;
-}
 
 .autoMode .slide-page:nth-child(1) {
     opacity: 1;
@@ -223,8 +220,8 @@ li {
 }
 
 .btn-rect-auto-active .btn-rect {
-    /* animation:5.5s rectWith forwards ease-in-out;
-    -webkit-animation:5.5s rectWith forwards ease-in-out;*/
+     animation:5.5s rectWith forwards ease-in-out;
+    -webkit-animation:5.5s rectWith forwards ease-in-out;
     width: 100%;
     opacity: 1;
 }

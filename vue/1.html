@@ -5,31 +5,22 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <script src="js/vue.js"></script>
-    <script>
-    window.onload = function() {
-
-        var msg = false;
-        var vue = new Vue({
-            el: ".app",
-            data: {
-                msg
-            },
-            methods:{
-                inputHandle(ev) {
-                    this.msg = ev.target.value;
-                }
-            }
-        })
-    }
-    </script>
+   
 </head>
 
 <body>
     <div class="app">
-        <input type="text" v-on:input="inputHandle">
-        <p>{{fn}}</p>
-        <p>{{msg}}</p>
+        <p v-text="msg"></p>
     </div>
+
+    <script>
+        var vm= new Vue({
+            el:".app",
+            data:{
+                msg:"这是新闻"
+            }
+        })
+    </script>
 </body>
 
 </html>
