@@ -128,19 +128,20 @@
 					</ul>
 				</div>
 			</div> -->
-        <transfer-list :data="originData" title="源列表"></transfer-list>
+        <transfer-list :list="originData" title="源列表"></transfer-list>
         <div class="transfer-operation">
             <p>
-                <input type="button" value="<" disabled />
+                <input type="button" value="<"  @click="targetToOrigin" />
             </p>
             <p>
-                <input type="button" value=">" disabled />
+                <input type="button" value=">"  @click="originToTarget"/>
             </p>
         </div>
+        <transfer-list :list="targetData" title="目标列表"></transfer-list>
     </div>
     <script src="./js/vue.js"></script>
     <script>
-    let data = {
+    let list = {
         originData: [ // 源列表
             {
                 id: 1000,
@@ -178,7 +179,7 @@
     }
 
     Vue.component("transfer-list", {
-        props: ["title", "data"],
+        props: ["title", "list"],
         template: `
 				<div class="transfer-list">
 					<div class="transfer-header">
@@ -188,10 +189,10 @@
 					</div>
 
 					<div class="transfer-list-body">
-						<ul class="transfer-list-content">
-							<li class="transfer-list-content-item">
-								<input type="button" name="" value="">
-								<span>{{}}</span>
+						<ul class="transfer-list-content"  >
+							<li class="transfer-list-content-item" v-for="item in list">
+								<input type="checkbox" name="" value="" v-model="item.checked">
+								<span>{{item.title}}</span>
 							</li>
 						</ul>
 					</div>
@@ -199,7 +200,7 @@
 				`,
         computed: {
             checkedLength() {
-                return this.data.filter(item => item.checked).length;
+                return this.list.filter(item => item.checked).length;
             }
         }
     })
@@ -207,10 +208,27 @@
     var vue = new Vue({
         el: "#app",
         data: {
-            ...data
+            ...list
         },
         methods: {
-            // d
+            miv(obj1,obj2){
+                //找到目标中选中，放到源列表中
+                let checkedItem = obj1.filter(item => item.checked).map((item) =>{
+                    return {
+                        ...item,
+                        checked:false
+                    }
+                })
+                obj2.push(...checkedItem);
+                return obj1.filter(item =>!item.checked)
+            },
+
+            targetToOrigin(){
+                this.targetData = this.miv(this.targetData,this.originData);
+            },
+            originToTarget(){
+                this.originData = this.miv(this.originData,this.targetData);
+            }
         }
     })
     </script>

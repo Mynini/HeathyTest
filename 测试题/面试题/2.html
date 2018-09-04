@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<input type="button" value="0">
+<input type="button" value="1">
+<input type="button" value="2">
+<input type="button" value="3">
+<input type="button" value="4">
+
+<script type="text/javascript">
+/*
+作用域: 
+	数据应用范围
+	当一个函数被执行时，函数中参数 或者 声明的数据，就会被存入该函数的[[Scopes]]
+
+作用域链: 当我们在函数中，调用一个数据的时候，会现在本作用域去查找这条数据,如果找不到就接着向上查找父级的作用域直到全局作用域，如果没有就报错
+
+闭包: 
+	形式：函数嵌套函数
+	特征：子级可以访问父级作用域中的数据，但是父级不能访问子级的作用域
+*/
+// window.a = 1;
+// function fn(){
+// 	var a = 0;
+// 	function fn2(){
+// 		console.log(a);
+// 	}
+// 	fn2();
+// 	console.dir(fn2);
+// }
+// fn();
+var btns = document.querySelectorAll('input');
+for(var i = 0; i < 5; i++){
+	fn(i);
+}
+/*
+	0： nub 0
+	1:  nub 1
+	2:  nub 2
+*/
+function fn(nub){
+	btns[nub].onclick = function(){
+		console.log(nub);
+	}
+}
+
+</script>	
+
+<script>
+	function f(){
+		var a=10;
+	}
+	console.dir(f)
+</script>
+</body>
+</html>

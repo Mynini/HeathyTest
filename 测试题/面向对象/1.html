@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script>
+
+
+		// --------------1---------------------
+		// function Myclass(){
+		// 	this.x=1;
+		// }
+		// Myclass.prototype.x=4;
+		// Myclass.prototype.method=function(){
+		// 	console.log(this.x)  
+		// }
+		// new Myclass().method();   //--->控制台:1   
+		
+		// 解析：函数是被作为对象的方法进行调用->函数中的this指向调用该函数的对象，所以先找私有属性Myclass里面的this.x  再找公有属性prototype.x
+		
+
+		// --------------2---------------------
+		var x=1;
+		function Myclass(){
+
+		}
+		Myclass.prototype.x=4;
+		Myclass.prototype.method=function(){
+			console.log(this.x)
+		}
+
+		var prototype=Myclass.prototype;
+		var method=prototype.method;
+
+		new Myclass().method();    //--->控制台:4   
+		prototype.method();  //--->控制台：4    解析：当前method方法的this指向了MyClass.prototype  是Myclass对象调用的
+		method()     //如果一个函数是直接调用的，那么这个函数中this指向window
+		
+	</script>
+	
+</body>
+</html>

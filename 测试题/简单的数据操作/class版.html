@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+<section class="wrap">
+	<header class="header">
+		<h2 class="title">员工信息管理</h2>
+		<a href="javascript:;" class="addBtn">添加</a>
+	</header>
+	<form class="add">
+		<input type="text" class="name" placeholder="姓名">
+		<label class="genderWrap">
+			<input type="checkbox" class="gender">
+			<div class="genderIco">
+				<div class="genderInner"><span>男</span><span>女</span></div>
+			</div>
+		</label>
+		<input type="number" class="age" placeholder="年龄" step="1" min="18" max="80">
+		<label class="stateWrap">
+			<input type="checkbox" class="state">
+			<div class="stateIco">
+				<div class="stateInner"><span>在职</span><span>离职</span></div>
+			</div>
+		</label>
+		<button type="button" class="submit">录入信息</button>
+	</form>
+	<!-- <nav class="nav">
+		<a href="javascript:;">所有员工信息</a>
+		<a href="javascript:;">女员工信息</a>
+		<a href="javascript:;">男员工信息</a>
+		<a href="javascript:;">在职员工信息</a>
+		<a href="javascript:;">离职员工信息</a>
+	</nav>	 -->
+	<ul class="list">
+		<!-- <li>
+			<span>
+				<input type="checkbox" class="checkAll">
+			</span>
+			<span>姓名</span>
+			<span>性别</span>
+			<span>年龄</span>
+			<span>状态</span>
+			<span>操作</span>
+		</li>
+		<li>
+			<span>
+				<input type="checkbox" class="checkAll">
+			</span>
+			<span>Leo</span>
+			<span>男</span>
+			<span>40</span>
+			<span><a href="javascript:;">在职</a></span>
+			<span><a href="javascript:;">删除</a></span>
+		</li>
+		<li>
+			<span>
+				<input type="checkbox" class="checkAll">
+			</span>
+			<span>小美</span>
+			<span>女</span>
+			<span>18</span>
+			<span><a href="javascript:;">在职</a></span>
+			<span><a href="javascript:;">删除</a></span>
+		</li>
+		<li>
+			<span>
+				<input type="checkbox" class="checkAll">
+			</span>
+			<span>张三</span>
+			<span>男</span>
+			<span>24</span>
+			<span><a href="javascript:;">在职</a></span>
+			<span><a href="javascript:;">删除</a></span>
+		</li> -->
+	</ul>
+	<p class="operate">
+		<a href="javascript:;">删除选中项</a>
+		<a href="javascript:;">入职选中项</a>
+		<a href="javascript:;">离职选中项</a>
+	</p>	
+</section>
+<script type="text/javascript" src="js/data.js"></script>
+<script type="text/javascript">
+class DataInfo {
+	constructor(data){
+		this.data = data;	
+	}
+	add(name,age,gender,state){
+		data.push({
+			id: Symbol(),
+			name,
+			age,
+			gender,
+			state,
+			checked: false
+		});	
+		return this;
+	}
+} 
+(function(){	
+	let info = new DataInfo(data);
+	let list = document.querySelector('.list');
+	info.render = function(){
+		/* 渲染列表 */
+		list.innerHTML = `
+			<li>
+				<span>
+					<input type="checkbox" class="checkAll">
+				</span>
+				<span>姓名</span>
+				<span>性别</span>
+				<span>年龄</span>
+				<span>状态</span>
+				<span>操作</span>
+			</li>
+		`;
+		this.data.forEach((item,index)=>{
+			list.innerHTML += `
+				<li>
+					<span>
+						<input type="checkbox" ${item.checked?"checked":""} class="check">
+					</span>
+					<span>${item.name}</span>
+					<span>${item.gender}</span>
+					<span>${item.age}</span>
+					<span><a href="javascript:;">${item.state?"在职":"离职"}</a></span>
+					<span><a href="javascript:;">删除</a></span>
+				</li>
+			`;
+		});
+	}
+	info.render();
+	info.add("leo","18","男","true").render();
+	console.log(info.data);
+})();
+</script>
+</body>
+</html>

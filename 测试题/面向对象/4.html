@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    // AMD -> require.js   它是前置依赖
+
+    define('a', ['jquery'], function($) {    //[] 里面放的是依赖   $是形参 接收jquery
+        // 选项卡
+        // $.each();
+    });
+
+    // CMD       它是就人近依赖
+    define('a', function() {
+        var $ = require('jquery');
+    })
+
+    //UMD
+    (function (root, factory) {
+        if (typeof define === 'function' && define.amd) {
+            // AMD
+            define(['jquery'], factory);
+        } else if (typeof exports === 'object') {
+            // Node, CommonJS之类的
+            module.exports = factory(require('jquery'));
+        } else {
+            // 浏览器全局变量(root 即 window)
+            root.returnExports = factory(root.jQuery);
+        }
+    }(this, function ($) {
+    	
+        //    方法
+        function myFunc(){};
+
+        //    暴露公共方法
+        return myFunc;
+    }));
+
+
+</script>
+
+</body>
+</html>
