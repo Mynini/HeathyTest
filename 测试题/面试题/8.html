@@ -5,9 +5,10 @@
     <meta charset="UTF-8" />
     <title>全屏不全屏</title>
     <style>
-
-            li{background:red;margin:10px;}
-
+    li {
+        background: red;
+        margin: 10px;
+    }
     </style>
 </head>
 
@@ -25,13 +26,17 @@
     var doms = document.querySelectorAll("li");
 
     for (var i = 0; i < doms.length; i++) {
-        doms[i].idx=i;
-        doms[i].onclick = function() {
-            console.log(this.idx)
+        doms[i].onclick = function(i) {
+            console.log(i)           //---——》打出event
         }
     }
 
 
+    for (var i = 0; i < doms.length; i++) {
+        doms[i].onclick = function() {
+            console.log(i)            //---——》打出7
+        }
+    }
     </script>
 </body>
 

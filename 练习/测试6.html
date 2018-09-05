@@ -1,21 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <title>全屏不全屏</title>
 </head>
 
 <body>
-    <script>
-    var a=[true,false,true,true];
+    <input id="fullScreen" type="button" value="全屏" />
+    <input id="fullScreenNormal" type="button" value="正常" />
+    <script language="javaScript">
+    function intro() {
+        if ((navigator.appVersion.indexOf("Mac") != -1) &&
+            (navigator.userAgent.indexOf("MSIE") != -1) &&
+            (parseInt(navigator.appVersion) = 4)) {
+            skip()
+        } else {
+            popup()
+        }
 
-    var b=a.filter(function(i,item){
-        return i==false;
-    })
+    }
 
-    console.log(b)
+    function skip() {
+        location.href = "http://www.ablanxue.com/";
+    }
+
+    function popup() {
+        version = parseFloat(navigator.appVersion.substring(navigator.appVersion.indexOf('.') - 1, navigator.appVersion.length));
+        if (version >= 4)
+            version = parseFloat(navigator.appVersion.substring(navigator.appVersion.indexOf('.') - 1, navigator.appVersion.length));
+        if (version >= 4)
+
+        {
+            if (navigator.appName == "Netscape") {
+                Hello = window.open("http://www.ablanxue.com/", "Hello", "scrollbars");
+                Hello.focus();
+
+            }
+
+
+            if (navigator.appName == "Microsoft Internet Explorer") {
+                window.open("http://www.ablanxue.com/", "screen", "fullscreen==yes");
+            }
+        } else {
+            location.href = "http://www.ablanxue.com/";
+        }
+
+    }
     </script>
-</body>
+</body onload=intro()>
 
 </html>
