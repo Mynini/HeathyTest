@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style type="text/css">
+h2 {
+	margin: 0;
+}
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.wrap {
+	position: relative;
+	width: 600px;
+	margin: 30px auto;
+	font: 12px "宋体";
+}	
+.addBtn {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+input {
+	margin: 0;
+}
+a {
+	color: #337ab7;
+	text-decoration: none;
+}
+a:hover {
+	color: #23527c;
+}
+a.selected {
+	color: #ccc;
+}
+.header {
+	border-bottom: 2px solid #666;
+}
+.title {
+	text-align: center;
+	font: 14px/32px "宋体";
+}
+.nav {
+	display: flex;
+	font: 12px/26px "宋体";
+	justify-content: space-between;
+	border-bottom: 2px solid #666;
+}
+.add {
+	display: flex;
+	height: 40px;
+	align-items: center;
+	font: 12px/24px "宋体";
+	justify-content: space-between;
+	border-bottom: 2px solid #666;
+}
+.name,
+.age,
+.submit {
+	width: 80px;
+	text-align: center;
+	height: 24px;
+	padding: 0;
+	border: 1px solid #CCC;
+}
+
+.genderWrap,
+.stateWrap {
+	width: 44px;
+	padding: 1px;
+	border: 1px solid #CCC;
+}
+.stateWrap {
+	width: 88px;
+}
+
+.gender,
+.state {
+	display: none;
+}
+
+.genderIco,
+.stateIco {
+	width: 22px;
+	height: 22px;
+	background: #666;
+	overflow: hidden;
+	transition: .3s;
+}
+.stateIco {
+	width: 44px;
+}
+.genderInner,
+.stateInner {
+	transition: .3s;
+	display: flex;
+	width: 44px;
+	font: 12px/22px "宋体";
+	color: #fff;
+}
+.stateInner {
+	width: 88px;
+}
+.genderInner span,
+.stateInner span {
+	margin: auto;
+}
+.gender:checked ~ .genderIco {
+	margin-left: 22px;
+}
+.gender:checked ~ .genderIco .genderInner{
+	margin-left: -22px;
+}
+.state:checked ~ .stateIco {
+	margin-left: 44px;
+}
+.state:checked ~ .stateIco .stateInner{
+	margin-left: -44px;
+}
+.list {
+	margin: 0 auto;
+	width: 90%;
+}
+.list li {
+	display: flex;
+	font: 12px/24px "宋体";
+	border-bottom: 1px solid #ccc;
+}
+.list span {
+	display: block;
+	margin: 0 auto;
+	flex: 1;
+	text-align: center;
+}
+.list li span:nth-of-type(1) {
+	width: 40px;
+	flex: none;
+}
+.operate {
+	display: flex;
+	justify-content: space-around;
+	font: 12px/24px "宋体";
+	border-top: 2px solid #000;
+}
+</style>
+</head>
+<body>
+<section class="wrap">
+	<header class="header">
+		<h2 class="title">员工信息管理</h2>
+		<a href="javascript:;" class="addBtn">添加</a>
+	</header>
+	<form class="add">
+		<input type="text" class="name" placeholder="姓名">
+		<label class="genderWrap">
+			<input type="checkbox" class="gender">
+			<div class="genderIco">
+				<div class="genderInner"><span>男</span><span>女</span></div>
+			</div>
+		</label>
+		<input type="number" class="age" placeholder="年龄" step="1" min="18" max="80">
+		<label class="stateWrap">
+			<input type="checkbox" class="state">
+			<div class="stateIco">
+				<div class="stateInner"><span>在职</span><span>离职</span></div>
+			</div>
+		</label>
+		<button type="button" class="submit">录入信息</button>
+	</form>
+	<nav class="nav">
+		<a href="javascript:;">所有员工信息</a>
+		<a href="javascript:;">女员工信息</a>
+		<a href="javascript:;">男员工信息</a>
+		<a href="javascript:;">在职员工信息</a>
+		<a href="javascript:;">离职员工信息</a>
+	</nav>	
+	<ul class="list">
+		<li>
+			<span>
+				<input type="checkbox" class="checkAll">
+			</span>
+			<span>姓名</span>
+			<span>性别</span>
+			<span>年龄</span>
+			<span>状态</span>
+			<span>操作</span>
+		</li>
+		<li>
+			<span>
+				<input type="checkbox" class="checkAll">
+			</span>
+			<span>Leo</span>
+			<span>男</span>
+			<span>40</span>
+			<span><a href="javascript:;">在职</a></span>
+			<span><a href="javascript:;">删除</a></span>
+		</li>
+		<li>
+			<span>
+				<input type="checkbox" class="checkAll">
+			</span>
+			<span>小美</span>
+			<span>女</span>
+			<span>18</span>
+			<span><a href="javascript:;">在职</a></span>
+			<span><a href="javascript:;">删除</a></span>
+		</li>
+		<li>
+			<span>
+				<input type="checkbox" class="checkAll">
+			</span>
+			<span>张三</span>
+			<span>男</span>
+			<span>24</span>
+			<span><a href="javascript:;">在职</a></span>
+			<span><a href="javascript:;">删除</a></span>
+		</li>
+	</ul>
+	<p class="operate">
+		<a href="javascript:;">删除选中项</a>
+		<a href="javascript:;">入职选中项</a>
+		<a href="javascript:;">离职选中项</a>
+	</p>	
+</section>
+<script type="text/javascript">
+let data = [
+		{
+			id: 12,
+			name: "张三",
+			age: 18,
+			gender: "男",
+			state: true,
+			checked: true
+		},{
+			id: 13,
+			name: "李四",
+			age: 19,
+			gender: "男",
+			state: false,
+			checked: true
+		},{
+			id: 16,
+			name: "红五",
+			age: 19,
+			gender: "女",
+			state: false,
+			checked: true
+		}
+	]
+/*
+	data:[
+		{
+			id: 12,
+			name: "张三",
+			age: 18,
+			gender: "男",
+			state: true,
+			checked: false
+		},{
+			id: 13,
+			name: "李四",
+			age: 19,
+			gender: "男",
+			state: false,
+			checked: false
+		}
+	]
+*/
+/*
+	this.list:
+		0: 所有列表
+		1: 女士列表
+		2: 男士列表
+		3: 在职列表
+		4: 离职列表
+	this.showForm: true|| false		
+*/
+function Info(data){
+	this.data = data||[];
+	this.list = 0;
+	this.showForm = false;
+	this.getList = this.getList.bind(this);
+	this.getLadies = this.getLadies.bind(this);
+	this.getGentlemen = this.getGentlemen.bind(this);
+	this.getEmployee = this.getEmployee.bind(this);
+	this.getFormer = this.getFormer.bind(this); 
+	this.gets = [
+		this.getList,
+		this.getLadies,
+		this.getGentlemen,
+		this.getEmployee,
+		this.getFormer
+	];
+}	
+Info.prototype={
+	getId: function(){
+		return Date.now();
+	},
+	getData: function(){
+		return this.gets[this.list]();
+	},
+	getList: function(){
+		return this.data;
+	},
+	getLadies:function(){
+		return  this.data.filter((item)=>item.gender == "女");
+	},
+	getGentlemen:function(){
+		return this.data.filter((item)=>item.gender == "男");	
+	},
+	getEmployee: function(){
+		return this.data.filter((item)=>item.state);
+	},
+	getFormer: function(){
+		return this.data.filter((item)=>(!item.state));
+	},
+	getChecked: function(){
+		return this.getData().filter((item)=>item.checked);
+	},
+	getCheckedAll: function(){
+		return this.getData().length == this.getChecked().length; 
+	},
+	add:function(data){
+		this.data.push(Object.assign(data,{id:this.getId(),selected:false}));
+		return this;
+	},
+	changeList: function(index){
+		this.list = index;
+		return this;
+	},
+	changeShowForm: function(state){
+		this.showForm = state;
+		return this;
+	},
+	changeGroupChecked: function(state){
+		let data = this.getChecked();
+		data.forEach((item)=>{
+			item.checked = state;
+		});
+		return this;
+	},
+	changeChecked: function(id,state){
+		this.data.forEach((item)=>{
+			id == item.id?item.checked = state:"";
+		});
+		return this;
+	},
+	changeState: function(id,state){
+		let data = this.getChecked();
+		this.data.forEach((item)=>{
+			id == item.id?item.state = state:""
+		});
+		return this;
+	},
+	changeGroupState: function(state){
+		this.getChecked().forEach((item)=>{
+			item.state = state;
+		});
+		return this;
+	},
+	remove: function(id){
+		this.data = this.data.filter((item)=>{
+			return item.id !== id;		
+		});
+		return this;
+	},
+	removeCheck: function(){
+		let data = this.getChecked();
+		this.data = this.data.filter((item)=>{
+			for(let i = 0; i < data.length; i++){
+				if(data[i] ==item){
+					return false;
+				} 
+			}
+			return true;
+		});	
+		return this;
+	}
+};
+(function(){
+	let add = document.querySelector('.add');
+	let nav = document.querySelector('.nav');
+	let navs = nav.querySelectorAll('a');
+	let list = document.querySelector('.list');
+	let operate = document.querySelector('.operate');
+	let info = new Info(data);
+	info.render = function(){
+		/* 输入框状态 */
+		let data = this.getData();
+		console.log(data,this.data,data.length,info.showForm);
+		if(!data.length 
+		&& !info.showForm
+		){
+			console.log(info.List);
+			(info.list > 0)?info.changeList(0).render():info.changeShowForm(true).render();	
+			return this;
+		}
+		/* 渲染输入框 */
+		add.style.display = info.showForm?"flex":"none";
+
+		/* 渲染导航 */
+		nav.style.display = data.length?"flex":"none";
+		for(let i = 0; i < navs.length&&data.length > 0; i++){
+			navs[i].className = this.list == i?"selected":"";
+			navs[i].style.display = this.gets[i]().length?"block":"none"; 
+		}
+
+		/* 渲染列表 */		
+		list.style.display = data.length?"block":"none";
+		list.innerHTML = `<li>
+			<span>
+				<input type="checkbox" ${this.getCheckedAll()?"checked":""} class="checkAll">
+			</span>
+			<span>姓名</span>
+			<span>性别</span>
+			<span>年龄</span>
+			<span>状态</span>
+			<span>操作</span>
+		</li>`;
+		list.querySelector(".checkAll").onchange = function(){
+			info.changeGroupChecked(this.checked).render();
+		};
+		data.forEach((item)=>{
+			let li = document.createElement("li");
+			li.innerHTML = `
+			<span>
+				<input type="checkbox" ${item.checked?"checked":""} class="checkAll">
+			</span>
+			<span>${item.name}</span>
+			<span>${item.gender}</span>
+			<span>${item.age}</span>
+			<span><a href="javascript:;">${item.state?"在职":"离职"}</a></span>
+			<span><a href="javascript:;">删除</a></span>`;
+			let check = li.querySelector('input');
+			let btns = li.querySelectorAll('a');
+			check.onchange = function(){
+				info.changeChecked(item.id,this.checked).render();
+			};	
+			btns[0].onclick = function(){
+				info.changeState(item.id,!item.state).render();
+			};
+			btns[1].onclick = function(){
+				info.remove(item.id).render();
+			};
+			list.appendChild(li);
+		});
+
+
+		/* 渲染操作按钮 */
+		operate.style.display = this.getChecked().length?"flex":"none";
+	} 
+	info.render();
+
+	let addBtn = document.querySelector('.addBtn');
+	addBtn.onclick = function(){
+		info.changeShowForm(!info.showForm).render();
+	};
+
+	let name = document.querySelector('.name');
+	let age = document.querySelector('.age');
+	let state = document.querySelector('.state');
+	let gender = document.querySelector('.gender');
+	let submit = document.querySelector('.submit');
+	submit.onclick = function(){
+		info.add({
+			name: name.value,
+			age: age.value,
+			state: !state.checked,
+			gender: gender.checked?"女":"男"
+		}).changeShowForm(false).changeList(0).render();
+
+	};
+
+	/* 视图切换 */
+	navs.forEach((item,key)=>{
+		item.onclick = function(){
+			info.changeList(key).render();
+		};
+	});
+
+
+	/* 批量操作 */
+	let operateBtns = operate.querySelectorAll('a');
+	operateBtns[0].onclick = function(){
+		info.removeCheck().render();
+	};
+	operateBtns[1].onclick = function(){
+		info.changeGroupState(true).render();
+	};
+	operateBtns[2].onclick = function(){
+		info.changeGroupState(false).render();
+	};
+})();
+/*
+	后续功能扩展会在 https://github.com/motao314/vm 进行更新
+*/
+</script>
+</body>
+</html>

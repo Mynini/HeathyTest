@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+
+	<script>
+		
+		function Fn(){
+		}
+
+		var f =new Fn();
+
+		// f.__proto__==Fn.prototype
+		// prototype：可以解释是包含来着当前构造函的私有属性 和父原型链对象的一个对象 ，构造函数会生成prototype的时候会自动给prototye加上必有要户型constructer=Fn
+		// __proto__：可以解释是父级
+		// 这里f是一个新对象,所以会自带新f.__proto__
+
+	</script>
+
+	<script>
+		
+	</script>
+	
+</body>
+</html>
+
+<!-- 
+	1: 在js中函数也是一个对象类型的数据
+	2: 函数下也会有很多的特征（属性，方法） 这里的盘牙特征不是指函数体内的代码
+	3: 当一个函数被创建的时候，系统会自动给函数添加一些属性和方法，其中有一个名称为：protoytpe(原型）,它的值为一个对象
+	4：当一个对象被创建的时候，系统会西东给这个对象添加一个属性，名称为：__proto__,它的值也是一个对象
+	5: 当我们调用一个对象下的属性或者方法的时候，首先会在该对象自身上查找有没有，如果没有，那么会查找对象下的 __proto__下查找是否有
+	如 var f=new F() 
+	console.log(f.y) 
+	查找过程 f.y ==> f.__proto__.y ==> F.prototype.y==>F.prototye._proto_.y
+	注意：Object.prototype.__proto__=null​
+
+	注意：
+		prototype :是构造函数才有的
+		__proto__ :是每个对象都有的
+		prototype:  ==当前来着构造函数的  私有属性 + __proto__对象
+ -->

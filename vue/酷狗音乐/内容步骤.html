@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<!--
+	Mint UI  (ui 界面 ui组件库)
+	用到的技术栈
+	vue+vue-router+axios+vue-cli axios:与后端进行通讯的, vue-cli脚手架
+-->
+
+<!--
+	跨域
+
+	proxyTable: {      "/proxy/": { // 以 /proxy/为开头的适合这个规则        target: "http://m.kugou.com",  // 目标地址        "secure": false,  // false为http访问，true为https访问        "changeOrigin": true, // 跨域访问设置        "pathRewrite": { // 路径改写规则          "^/proxy": "" // 以 /proxy/为开头改写为 ''          "^/api": "/lisst" // 以 /api/为开头改写为 '/list'        },        "headers": {  // 设置请求头，伪装成手机端访问          "User-Agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Mobile Safari/537.36"        }      } 路径改写规则: 访问地址：http://localhost:8080/proxy/plist/class 访问第三方接口为： http://m.kugou.com/plist/classssssssssssss
+访问地址：http://localhost:8080/api/plist/class 访问第三方接口为： http://m.kugou.com/list/plist/class
+-->
+
+<!--
+	数据拦截
+	axios.transformResponse  拦截请求或者发送的数据,以对这些数据进行统一处理
+	
+-->
+
+
+
+<!--
+	步骤
+	1:安装依赖：
+		npm i vuex --save
+		npm i mint-ui --save
+		npm i axios --save
+
+	2：页面创建
+	3：路由配置
+	4：App.vue 主模板上做模板渲染
+	5：跨域配置 /test/config/index.js 配置
+	5：server写axios 请求数据
+
+	
+	
+-->

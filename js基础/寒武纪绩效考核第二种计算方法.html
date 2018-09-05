@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script>
+
+
+		
+
+		var length=31;
+		var num=0;
+		//a,b,c,d占多少份额
+		// var arr=[0.15,0.25,0.5,0.1];
+
+		var arr=[0.15,0.4,0.9];
+		var arr1={};
+			arr1.a=parseInt(31*arr[0]);
+			arr1.b=parseInt(31*arr[1]-arr1.a);
+			arr1.c=parseInt(31*arr[2]-arr1.a-arr1.b);
+			arr1.d=parseInt(31-arr1.a-arr1.b-arr1.c);
+
+			for(var i in arr1){
+				arr1[i]=parseInt(arr1[i])
+			}
+
+			for(var i in arr1){
+				num+=arr1[i];
+			}
+
+			console.log(arr1)
+			console.log(num)
+		
+	</script>
+	
+</body>
+</html>
+
+<!--
+	计算： 
+		定义总人数=31
+		评分比值:A:15%  B:25% C:50% D:10%   计算选ABCD最大限制个数
+			a=0.15*31=4.65 =4 余0.65  
+			b=0.25*31=7.75 =7+余0.75 + 0.65   余下0.4　依次类推
+
+-->

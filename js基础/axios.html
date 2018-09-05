@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+    <script>
+
+    	axios.get("http://m.kugou.com/?json").then(function(text){
+    		console.log(text)
+    	})
+    
+
+   
+    </script>
+</body>
+
+</html>
+<!-- 
+
+	什么是axios
+		:是一个基于promise 用于浏览器和nodejs 的HTTP客户端，它有以下特点：
+			从浏览器中创建 XMLHttpRequest
+			从 node.js 发出 http 请求
+			支持 Promise API
+			拦截请求和响应
+			转换请求和响应数据
+			取消请求
+			自动转换JSON数据
+			客户端支持防止 CSRF/XSRF
+
+	参考:https://www.cnblogs.com/libin-1/p/6607945.html
+
+	安装：两种方式
+		$ npm install axios
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+ 
+
+	
+
+-->

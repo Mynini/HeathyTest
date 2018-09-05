@@ -1,59 +1,38 @@
-<!DOCTYPE html>
-<html lang="en" style="font-size: 100px;">
+<!doctype html>
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <title>全屏不全屏</title>
     <style>
-    .u-point{
-      width:20px;
-      height:20px;
-      background:red;
-      float:left;
-      border-radius: 50%;
-      margin:0 20px;
-    }
-    .u-progress .u-right {
-        overflow: hidden;
-        animation: progress 4s steps(6) infinite;
-        -webkit-animation: progress 4s steps(6) infinite;
-        width: .25rem;
-        height: .55rem;
-        order: 0;
-        background: transparent url('../images/progress.png');
-        background-position: -.25rem -.55rem;
-        background-size: .50rem .55rem;
-    }
 
-    @keyframes progress {
-        0% {
-            order: 0;
-        }
-        100% {
-            order: 6;
-        }
-    }
+            li{background:red;margin:10px;}
 
-    @-webkit-keyframes progress {
-        0% {
-            order: 0;
-        }
-        100% {
-            order: 6;
-        }
-    }
     </style>
 </head>
 
 <body>
-    <div class="u-progress">
-        <div class="u-right"></div>
-        <div class="u-point"></div>
-        <div class="u-point"></div>
-        <div class="u-point"></div>
-        <div class="u-point"></div>
-        <div class="u-point"></div>
-    </div>
+    <ul>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+    </ul>
+    <script>
+    var doms = document.querySelectorAll("li");
+
+    for (var i = 0; i < doms.length; i++) {
+        doms[i].idx=i;
+        doms[i].onclick = function() {
+            console.log(this.idx)
+        }
+    }
+
+
+    </script>
 </body>
 
 </html>

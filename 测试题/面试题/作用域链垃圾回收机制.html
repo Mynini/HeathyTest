@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS资深前端就业精英班</title>
+</head>
+<body>
+<script type="text/javascript">
+	function fn1(){
+		var a=0;
+		function fn2(){
+			++a;
+			console.log(a)
+		}
+
+		return fn2;
+	}
+
+   fn1()();    //执行完之后，它里面的东西没在别的地方调用，这个作用域被销毁了
+   var newfn=fn1();  
+   newfn();  //这里执行完之后，后面还有调用到fn1作用域里在贩变量，这个作用域还存在没被加收
+   newfn();
+
+   // 结果: 打出  1 1 2
+
+
+</script>
+</body>
+</html>
+
+<!-- 垃圾回收机制 -->
+<!-- 作用域：函数在执行的时候会在它里在创建一人作用域,在里面的创建的变量会存进里面的作用域  -->
+
+
+

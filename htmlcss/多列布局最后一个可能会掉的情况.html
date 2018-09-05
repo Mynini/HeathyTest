@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    .column {
+        width: 31.33%;
+        background-color: green;
+        float: left;
+        margin: 0 1%;
+    }
+    /*  Establishing a new block formatting 
+    context in the last column */
+	.column:nth-child(2){
+		margin-right:2%;
+		background-origin:content-box;
+
+	}
+    .column:last-child {
+        float: none;
+        overflow: hidden;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="column">column 1</div>
+        <div class="column">column 2</div>
+        <div class="column">column 3</div>
+    </div>
+</body>
+
+</html>
